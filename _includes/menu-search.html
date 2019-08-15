@@ -41,8 +41,9 @@
       <ul>
       {% for link in section[1] %}
         {% if link.external %}
-
-
+            <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
         {% else %}
             <li>
                 <span class="counter-menu">{{link.key_trigger}}</span>
