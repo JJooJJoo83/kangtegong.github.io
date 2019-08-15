@@ -370,7 +370,7 @@ a.slideButton,
 
 .dosearch {
     right: 10px;
-    background: #54456e;
+    background: black;
     border-radius: .188rem;
     padding: .125rem .188rem
 }
@@ -379,7 +379,7 @@ a.slideButton,
     cursor: pointer;
     padding: .313rem;
     border-radius: .188rem;
-    background: #54456e;
+    background: black;
     width: 2.5rem;
     height: 2.5rem;
     fill: #fff
@@ -400,7 +400,7 @@ a.slideButton,
 
 aside {
     position: fixed;
-    height: 163px;
+    height: 163px;      /* 163px -> 400px */
     width: 100%;
     bottom: -100%;
     background: #2f2f33;
@@ -585,6 +585,7 @@ aside #topmenu ul li span {
         display: none
     }
 }
+
 
 aside nav ul {
     padding: 10px 0 0 10px;
@@ -896,8 +897,14 @@ body {
     height: 100%
 }
 
+.header-post {
+    background: #2C2C2C;
+    color: white;
+    border: none;
+    border-top: 5px solid #A30000;
+}
+
 .header-site,
-.header-post,
 .page-header {
     background: #5d4d7a;
     height: 100%;
@@ -1291,7 +1298,10 @@ body {
 
 .post-content p code,
 .post-content li code {
-    color: #615576
+    padding: 2px 4px;
+    color: #d14;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
 }
 
 .post-content a {
@@ -1630,11 +1640,11 @@ pre span {
     overflow: auto;
     word-wrap: normal;
     border-radius: 0;
-    padding: 20px;
+    padding: 10px;
     background-color: #2f2f33;
     color: #c1c2c3;
     margin: 0;
-    margin-bottom: 30px
+    margin-bottom: 10px
 }
 
 .highlight .hll {
