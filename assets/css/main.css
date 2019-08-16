@@ -403,7 +403,7 @@ aside {
     height: 163px;      /* 163px -> 400px */
     width: 100%;
     bottom: -100%;
-    background: #2f2f33;
+    background: white;
     z-index: 20;
     box-shadow: inset -10px -1px 15px -9px rgba(0, 0, 0, 0.5);
 }
@@ -419,8 +419,10 @@ aside ul {
 }
 
 aside #topmenu {
-    background-color: #5d4d7a;
-    border: 2px solid #5d4d7a;
+    background: #2C2C2C;
+    color: white;
+    border: none;
+    border-bottom: 3px solid #A30000;
     *zoom: 1;
 }
 
@@ -543,7 +545,7 @@ aside #topmenu ul li {
 }
 
 aside #topmenu ul li:first-child {
-    background: #efb102;
+    background: #A30000;
     padding: 4px 10px 4px 20px;
     margin-left: -10px;
 }
@@ -559,9 +561,12 @@ aside #topmenu ul li:first-child span {
 }
 
 aside #topmenu ul li:nth-child(3) {
-    background: #ab67ab;
+    background: #2C2C2C;
     padding-right: 30px;
     padding-left: 30px;
+    border-left: 2px solid #A30000;
+    border-right: 2px solid #A30000;
+
 }
 
 aside #topmenu ul li:nth-child(3) span {
@@ -576,7 +581,7 @@ aside #topmenu ul li span {
     font-weight: 800;
     font-style: normal;
     font-size: .813rem;
-    color: #ab67ab
+    color: white
 }
 
 @media only screen and (max-width:37.5rem) {
@@ -594,9 +599,14 @@ aside nav ul {
 }
 
 aside nav ul .counter-menu {
-    color: #ab67ab;
+    padding: .5px 5px;
+    color: #d14;
     font-weight: 800;
-    margin-right: 4px
+    margin-right: 4px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+
+
 }
 
 aside nav ul a {
@@ -606,7 +616,7 @@ aside nav ul a {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-style: normal;
-    color: #b3b3b1;
+    color: black;
 }
 
 aside nav ul a:hover {

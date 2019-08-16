@@ -8,10 +8,10 @@ url: "https://kangtegong.github.io" # for test: remove string 'http://victorvoid
 username: Kang Minchul
 user_title: 개발세발
 email: tegongkang@gmail.com
-twitter_username: loremipsum
+twitter_username: 
 github_username:  kangtegong
-linkedin_public_url: loremipsum # Example: For public profile 'www.linkedin.com/in/john-smith', 'john-smith' is your linkedin_public_url
-disqus_username: loremipsum
+linkedin_public_url:  # Example: For public profile 'www.linkedin.com/in/john-smith', 'john-smith' is your linkedin_public_url
+disqus_username: 
 profile_picture: https://avatars3.githubusercontent.com/u/47781146?s=460&v=4
 
 # Build settings
@@ -45,16 +45,16 @@ links:
       url: /about
       key_trigger: 5
   section_2:
-    - title: github
-      url: http://www.github.com/victorvoid
-      new_tab: true
-      key_trigger: g
-    - title: twitter
-      url: http://www.twitter.com/victorvoid
-      key_trigger: t
-    - title: search
-      url: ""
-      key_trigger: s #WARNING: search only works with "s"
+  #  - title: github
+  #    url: kangtegong
+  #    new_tab: true
+  #    key_trigger: g
+  #  - title: twitter
+  #    url: 
+  #    key_trigger: t
+  #  - title: search
+  #    url: ""
+  #    key_trigger: s #WARNING: search only works with "s"
 
 # projects in header index
 projects:
