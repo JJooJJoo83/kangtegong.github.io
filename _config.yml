@@ -1,12 +1,12 @@
 # Site settings
-title: Kang Minchul
+title: 개발새발
 description: "Tech Blog"
 baseurl: "" # for test: remove string '/space-jekyll-template' to ''
 url: "https://kangtegong.github.io" # for test: remove string 'http://victorvoid.github.io' to '' but in production: 'https://yourusername.github.io'
 
 # User settings
 username: Kang Minchul
-user_title: 개발세발
+user_title: kangtegong
 email: tegongkang@gmail.com
 twitter_username: 
 github_username:  kangtegong
