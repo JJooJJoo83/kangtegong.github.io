@@ -1050,9 +1050,11 @@ body {
 
 .header-post p {
     margin: 0;
-    padding-top: 23px;
+    padding-top: 10px;
     text-align: center;
-    color: #fff
+    color: #fff;
+    font-weight: 700;
+    font-size: x-large;
 }
 
 .page-header {
