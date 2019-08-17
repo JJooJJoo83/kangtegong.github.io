@@ -1662,10 +1662,10 @@ pre span {
     background-color: #2f2f33;
     color: #c1c2c3;
     margin: 0;
-    margin-bottom: 5px;
-    width : 70%;
-    margin-right: auto;
-    margin-left:auto;
+    margin-bottom: 5px; /*modify*/
+    width : 60%;        /*add*/
+    margin-right: auto; /*add*/
+    margin-left:auto;   /*add*/
 
 
 }
