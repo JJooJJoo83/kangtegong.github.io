@@ -1055,6 +1055,8 @@ body {
     color: #fff;
     font-weight: 700;
     font-size: x-large;
+    padding-bottom: 10px; /*add*/
+    background-color : black; /*add*/
 }
 
 .page-header {
