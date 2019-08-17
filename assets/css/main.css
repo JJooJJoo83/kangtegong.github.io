@@ -1662,7 +1662,12 @@ pre span {
     background-color: #2f2f33;
     color: #c1c2c3;
     margin: 0;
-    margin-bottom: 10px
+    margin-bottom: 5px;
+    width : 50%;
+    margin-right: auto;
+    margin-left:auto;
+
+
 }
 
 .highlight .hll {
