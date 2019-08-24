@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "시스템 기초 (3) : Disk -1"
