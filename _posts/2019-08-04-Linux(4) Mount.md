@@ -22,18 +22,18 @@ categories:
 우린 Window상에서 는 CD나 DVD를 아주 쉽게 쓰곤 했다.
 (그냥 넣으면 바로 연결이 되었으니)
 
-하지만, 리눅스에서는 경우에 따라 이러한 자동 연결이 지원되지 않는다..
+하지만, 리눅스에서는 경우에 따라 이러한 자동 연결이 지원되지 않는다.	.
 따라서 물리적인 장치와 내가 원하는 디렉토리를 연결해줘야 하는데,
 이 과정을 마운트라고 한다.
 
 ## CD/DVD 넣는 법 
 
-ㅑ사진ㅕ
-Settings
 
-Device Status의 Connected, Correct at power on을 체크
+가상 머신의 `Settings`
 
-실습할 때는 ISO Image 파일을 활용하는 게 좋으니까
+`Device Status`의 Connected, Correct at power on을 체크
+
+실습할 때는 ISO Image 파일을 활용하는 게 좋으니
 Centos ISO파일이 있는 경로를 설정해 준다
 
 그렇다면 실제 DVD를 삽입한 것과 동일한 상황이 된다.
@@ -41,7 +41,6 @@ Centos ISO파일이 있는 경로를 설정해 준다
 (실제로 자동으로 DVD가 인식이 되었다고 뜰 **수도** 있다. 버전에 따라 안뜰 수도 있고)
 
  
-
 ## X윈도우 상에서의 Mount
 
 Settings에서 설정하면 자동 mount가 될 수도 있는데
@@ -96,11 +95,13 @@ mount  이 장치를  이 폴더로 형식으로 명령어를 써 주면 되는�
 
 > mount : /dev/sr0 is write-protected, mounting read-only
 
-이라는 경고가 뜰 수 있다.
+라는 경고가 뜰 수 있다.
 
-cd /media/cdrom/
-ls
-Centos 설치한 DVD의 파일 및 폴더들의 목록들 이 뜬다
+
+	cd /media/cdrom/
+	ls
+
+Centos 설치한 DVD의 파일 및 폴더들의 목록들이 뜬다
 
 Windows 계열에서는 자동으로 D드라이브에 설치 되지만 
 리눅스는 이렇듯 다소 복잡한 절차를 거친다
@@ -109,7 +110,7 @@ DVD의 사용이 끝났으면 mount를 해제하는게 좋다
 
     umount /dev/cdrom
 
-근데, 이 때 주의할 점이 있다.
+근데, 이 때 주의할 점은,
 umount 명령어를 입력할 때 cdrom 위에서 명령어를 치면
 
 > CD/DVD가 사용 중이다, target is busy
@@ -118,13 +119,13 @@ umount 명령어를 입력할 때 cdrom 위에서 명령어를 치면
 
 따라서 반드시 cdrom을 빠져나간 뒤 umount를 치도록 하자.
 
-참고로 그냥 cd 를 누르면 User의 홈 디렉토리로 이동한다.
+(참고로 그냥 cd 를 누르면 User의 홈 디렉토리로 이동한다.)
 
     cd
     umount /dev/cdrom
-	    >> 아무것도 안뜬다. 즉, umount가 성공했다.
+	>> 아무것도 안뜬다. 즉, umount가 성공했다.
     ls /media/cdrom/
-		>> 아무것도 안뜬다. 즉, mount가 끊어졌다.
+	>> 아무것도 안뜬다. 즉, mount가 끊어졌다.
 
 
 ### 명령어 모아보기
