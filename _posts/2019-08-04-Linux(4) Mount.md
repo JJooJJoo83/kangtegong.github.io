@@ -91,22 +91,24 @@ mount  이 장치를  이 폴더로 형식으로 명령어를 써 주면 되는�
 
 명령어를 쳐 주면 된다.
 
-이 때, 
+(이 때, 
 
 > mount : /dev/sr0 is write-protected, mounting read-only
 
-라는 경고가 뜰 수 있다.
+라는 경고가 뜰 수도 있음에 주의하자.)
 
 
 	cd /media/cdrom/
 	ls
 
-Centos 설치한 DVD의 파일 및 폴더들의 목록들이 뜬다
+위 명령어를 치면, Centos 설치한 DVD의 파일 및 폴더들의 목록들이 뜬다.
 
-Windows 계열에서는 자동으로 D드라이브에 설치 되지만 
-리눅스는 이렇듯 다소 복잡한 절차를 거친다
+Windows 계열에서는 자동으로 D드라이브에 설치 되지만,
+리눅스는 이렇듯 다소 복잡한 절차를 거친다.
 
-DVD의 사용이 끝났으면 mount를 해제하는게 좋다
+---
+
+DVD의 사용이 끝났으면 mount를 해제해 주자.
 
     umount /dev/cdrom
 
