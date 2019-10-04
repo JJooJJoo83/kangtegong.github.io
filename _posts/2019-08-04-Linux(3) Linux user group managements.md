@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CentOS Server (3) 사용자와 그룹관리"
+title: "CentOS Server(3) 사용자와 그룹관리"
 image: ''
 date: 2019-08-04 20:20:06
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CentOS Server (7) RPM (Redhat Package Manager)"
+title: "CentOS Server(7) RPM (Redhat Package Manager)"
 image: ''
 date: 2019-08-11 21:20:06
 tags: 

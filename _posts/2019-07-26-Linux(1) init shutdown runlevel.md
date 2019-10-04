@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CentOS Server (1) 시작과 종료, 런레벨"
+title: "CentOS Server(1) 시작과 종료, 런레벨"
 image: ''
 date: 2019-07-26 16:25:06
 tags: 

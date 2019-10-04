@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CentOS Server (2) 리눅스 기본 조작법"
+title: "CentOS Server(2) 리눅스 기본 조작법"
 image: ''
 date: 2019-07-26 20:20:06
 tags: 

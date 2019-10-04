@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CentOS Server (4) CD/DVD의 Mount"
+title: "CentOS Server(4) CD/DVD의 Mount"
 image: ''
 date: 2019-08-04 21:20:06
 tags: 

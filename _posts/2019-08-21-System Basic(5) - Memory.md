@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "시스템 기초 (2) : Memory -2"
+title: "시스템 기초(2) Memory-2"
 image: ''
 date: 2019-08-17 12:30:06
 tags: 

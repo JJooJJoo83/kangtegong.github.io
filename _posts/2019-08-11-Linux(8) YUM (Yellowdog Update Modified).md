@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CentOS Server (8) YUM (Yellowdog Update Modified)"
+title: "CentOS Server(8) YUM(Yellowdog Update Modified)"
 image: ''
 date: 2019-08-11 21:22:06
 tags: 

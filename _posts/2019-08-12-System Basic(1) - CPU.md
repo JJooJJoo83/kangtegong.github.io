@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "시스템 기초 (1) : CPU -1"
+title: "시스템 기초(1) CPU-1"
 image: ''
 date: 2019-08-12 10:22:06
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CentOS Server (9) YUM 고급 사용법"
+title: "CentOS Server(9) YUM 고급 사용법"
 image: ''
 date: 2019-08-11 23:22:06
 tags: 

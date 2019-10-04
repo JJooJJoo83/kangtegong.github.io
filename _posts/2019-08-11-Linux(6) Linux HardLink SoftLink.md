@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CentOS Server (6) 하드링크와 소프트링크"
+title: "CentOS Server(6) 하드링크와 소프트링크"
 image: ''
 date: 2019-08-11 21:20:06
 tags: 

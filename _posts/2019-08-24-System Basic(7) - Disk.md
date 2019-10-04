@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "시스템 기초 (3) : Disk -1"
+title: "시스템 기초(3) Disk-1"
 image: ''
 date: 2019-08-24 09:24:06
 tags: 

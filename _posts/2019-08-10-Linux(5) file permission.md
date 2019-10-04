@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "CentOS Server (5) 파일의 소유권/허가권"
+title: "CentOS Server(5) 파일의 소유권/허가권"
 image: ''
 date: 2019-08-10 21:20:06
 tags: 
