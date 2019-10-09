@@ -56,7 +56,7 @@ find와 set::find에 대한 자세한 내용은 하단 문서 참고.
 
 1부터 1000까지의 정수 중 225를 찾아내는 간단한 코드이다.
 
-```
+{% highlight c++ %}
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -80,8 +80,8 @@ int main(){
 
     return 0;
 }
+{% endhighlight %}
 
-```
 
 위 코드를 동작 과정을 tracing 해 보며,
 225를 몇 번의 trial을 거쳐, 어떤 알고리즘으로 찾아내는지 알아보자. 
@@ -293,7 +293,7 @@ test code는 std::find와 동일한 논리의 코드이다.
 
 1부터 1000까지의 정수 중 225를 찾는 알고리즘이다.
 
-```
+{% highlight c++ %}
 #include<set>
 #include<string>
 #include<stdio.h>
@@ -310,7 +310,7 @@ int main(){
     
     return 0;
 }
-```
+{% endhighlight %}
 
 ## compile
 
