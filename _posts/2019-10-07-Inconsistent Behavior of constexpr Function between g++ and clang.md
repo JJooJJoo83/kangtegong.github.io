@@ -46,7 +46,7 @@ This document is written by [Minchul Kang](https://github.com/kangtegong)
 우선 `const`의 동작을 알아보기 위해 아래 예제 코드를 보자.
 간단한 피보나치 예제 코드이다.
 
-{% highilght c++ %}
+{% highlight c++ %}
 #include <cstdio>
 #include <cstdlib>
 const int fib(const int n)
@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
     printf("%d\n", result);
     return fib(5);
 }
-{% endhighlight%}
+{% endhighlight %}
  
 위 코드를 동작 과정을 tracing 해 보며,
 컴파일러 별로 `fib` 함수가 언제 계산되는지 확인해보자. 
@@ -188,7 +188,7 @@ int main(int argc, char* argv[])
     printf("%d\n", result);
     return fib(5);
 }
-{% end highlight %}
+{% endhighlight %}
 
 ## testing tool : uftrace
 
