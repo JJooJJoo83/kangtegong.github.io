@@ -11,8 +11,9 @@ categories:
 - uftrace
 ---
 
-## [uftrace] Inconsistent Behavior of constexpr Function between `g++` and `clang`
+### Inconsistent Behavior of constexpr Function between `gpp` and `clang`
 
+This document is written by [Minchul Kang](https://github.com/kangtegong)
 
 ## const & constexpr
 
@@ -45,7 +46,7 @@ categories:
 우선 `const`의 동작을 알아보기 위해 아래 예제 코드를 보자.
 간단한 피보나치 예제 코드이다.
 
-```
+{% highilght cpp %}
 #include <cstdio>
 #include <cstdlib>
 const int fib(const int n)
@@ -61,7 +62,8 @@ int main(int argc, char* argv[])
     printf("%d\n", result);
     return fib(5);
 }
-```
+{% endhighlight%}
+ 
 위 코드를 동작 과정을 tracing 해 보며,
 컴파일러 별로 `fib` 함수가 언제 계산되는지 확인해보자. 
 
@@ -105,8 +107,53 @@ $ uftrace -A fib@arg1/u -R fib@retval -A printf@arg1/s, args/i a.out
  `fib`함수는 상술했듯 컴파일타임이 아닌 런타임에서 연산이 되었고,
  그 과정은 다음의 uftrace 결과를 통해 확인할 수 있다.
  
-![g++ const](/img/constexpr/constclang.png)
+```
+# DURATION     TID     FUNCTION
+   0.865 us [ 10493] | __monstartup();
+   0.473 us [ 10493] | __cxa_atexit();
+            [ 10493] | main() {
+            [ 10493] |   fib(7) {
+            [ 10493] |     fib(6) {
+            [ 10493] |       fib(5) {
+            [ 10493] |         fib(4) {
+            [ 10493] |           fib(3) {
+   0.126 us [ 10493] |             fib(2) = 1;
+   0.086 us [ 10493] |             fib(1) = 1;
+   1.074 us [ 10493] |           } = 2; /* fib */
+   0.082 us [ 10493] |           fib(2) = 1;
+   3.191 us [ 10493] |         } = 3; /* fib */
+            [ 10493] |         fib(3) {
+   0.090 us [ 10493] |           fib(2) = 1;
+   0.080 us [ 10493] |           fib(1) = 1;
+   0.560 us [ 10493] |         } = 2; /* fib */
+   4.033 us [ 10493] |       } = 5; /* fib */
+                (.. 중략 ..)
+                
+            [ 10493] |       fib(3) {
+   0.088 us [ 10493] |         fib(2) = 1;
+   0.078 us [ 10493] |         fib(1) = 1;
+   0.519 us [ 10493] |       } = 2; /* fib */
+   1.755 us [ 10493] |     } = 5; /* fib */
+   8.141 us [ 10493] |   } = 13; /* fib */
+            [ 10493] |   printf() {
+  23.533 us [ 10493] |     /* linux:schedule */
+  11.998 us [ 10493] |     /* linux:schedule */
+  43.076 us [ 10493] |   } /* printf */
+            [ 10493] |   fib(5) {
+            [ 10493] |     fib(4) {
+            [ 10493] |       fib(3) {
+   0.107 us [ 10493] |         fib(2) = 1;
+   0.077 us [ 10493] |         fib(1) = 1;
+   0.665 us [ 10493] |       } = 2; /* fib */
+   0.080 us [ 10493] |       fib(2) = 1;
+   1.060 us [ 10493] |     } = 3; /* fib */
+            [ 10493] |     fib(3) {
+   0.090 us [ 10493] |       fib(2) = 1;
+   0.080 us [ 10493] |       fib(1) = 1;
+   0.514 us [ 10493] |     } = 2; /* fib */
+   1.954 us [ 10493] |   } = 5; /* fib */
 
+```
 
 ## inconsistent behavior in `constexpr`
 
@@ -124,7 +171,8 @@ $ uftrace -A fib@arg1/u -R fib@retval -A printf@arg1/s, args/i a.out
 
 다음의 피보나치 코드를 예로 들어보자.
 위 예시 코드에서 `const` 를 `constexpr` 로 바꾼 것에 불과하다.
-```
+
+{% highlight cpp %}
 #include <cstdio>
 #include <cstdlib>
 constexpr int fib(const int n)
@@ -140,7 +188,7 @@ int main(int argc, char* argv[])
     printf("%d\n", result);
     return fib(5);
 }
-```
+{% end highlight %}
 
 ## testing tool : uftrace
 
@@ -162,18 +210,83 @@ $ uftrace -A fib@arg1/u -R fib@retval -A printf@arg1/s, args/i a.out
 ## output
 
  ### g++ 
- 사진을 보면 알 수 있듯, 컴파일 시간에 이미 `fib`함수는 계산이 완료되었고,
+ 아래 결과를 보면 알 수 있듯, 컴파일 시간에 이미 `fib`함수는 계산이 완료되었고,
  a.out은 그 반환값인 13만을 가지고 있었음을 확인할 수 있다.
 
-![g++compile](/img/constexpr/constexpr1.png)
+```
+ DURATION     TID     FUNCTION
+   0.786 us [ 10782] | __monstartup();
+   0.448 us [ 10782] | __cxa_atexit();
+            [ 10782] | main() {
+            [ 10782] |   printf("%d\n", 13) {
+  30.899 us [ 10782] |     /* linux:schedule */
+  11.771 us [ 10782] |     /* linux:schedule */
+ 169.777 us [ 10782] |   } /* printf */
+            [ 10782] |   fib(5) {
+            [ 10782] |     fib(4) {
+            [ 10782] |       fib(3) {
+   2.288 us [ 10782] |         fib(2) = 1;
+   0.078 us [ 10782] |         fib(1) = 1;
+   3.211 us [ 10782] |       } = 2; /* fib */
+   0.090 us [ 10782] |       fib(2) = 1;
+   3.703 us [ 10782] |     } = 3; /* fib */
+            [ 10782] |     fib(3) {
+   0.080 us [ 10782] |       fib(2) = 1;
+   0.090 us [ 10782] |       fib(1) = 1;
+   0.550 us [ 10782] |     } = 2; /* fib */
+   4.764 us [ 10782] |   } = 5; /* fib */
+ 175.702 us [ 10782] | } /* main */
+
+```
 
 ### clang 
 
 반면 clang 을 이용한 컴파일을 tracing했을 적에는 결과가 달랐는데, 컴파일 시간에 계산이 완료되지 않았고 실행시간에 계산을 하고 있음을 확인할 수 있다.
 
-![clangcompile](/img/constexpr/constexpr2.png)
-![clangcompile](/img/constexpr/constexpr3.png)
-![clangcompile](/img/constexpr/constexpr4.png)
+```
+1.228 us [ 10858] | __monstartup();
+   0.452 us [ 10858] | __cxa_atexit();
+            [ 10858] | main() {
+            [ 10858] |   fib(7) {
+            [ 10858] |     fib(6) {
+            [ 10858] |       fib(5) {
+            [ 10858] |         fib(4) {
+            [ 10858] |           fib(3) {
+   0.128 us [ 10858] |             fib(2) = 1;
+   0.091 us [ 10858] |             fib(1) = 1;
+   1.134 us [ 10858] |           } = 2; /* fib */
+   0.099 us [ 10858] |           fib(2) = 1;
+   3.245 us [ 10858] |         } = 3; /* fib */
+            [ 10858] |         fib(3) {
+   0.079 us [ 10858] |           fib(2) = 1;
+   0.092 us [ 10858] |           fib(1) = 1;
+   0.564 us [ 10858] |         } = 2; /* fib */
+   4.107 us [ 10858] |       } = 5; /* fib */
+            [ 10858] |       fib(4) {
+            [ 10858] |         fib(3) {
+   0.082 us [ 10858] |           fib(2) = 1;
+   0.089 us [ 10858] |           fib(1) = 1;
+   0.542 us [ 10858] |         } = 2; /* fib */
+   0.078 us [ 10858] |         fib(2) = 1;
+   0.910 us [ 10858] |       } = 3; /* fib */
+   5.333 us [ 10858] |     } = 8; /* fib */
+            [ 10858] |     fib(5) {
+            [ 10858] |       fib(4) {
+            [ 10858] |         fib(3) {
+   0.084 us [ 10858] |           fib(2) = 1;
+   0.088 us [ 10858] |           fib(1) = 1;
+   0.560 us [ 10858] |         } = 2; /* fib */
+   0.079 us [ 10858] |         fib(2) = 1;
+   0.932 us [ 10858] |       } = 3; /* fib */
+            [ 10858] |       fib(3) {
+   0.088 us [ 10858] |         fib(2) = 1;
+   0.087 us [ 10858] |         fib(1) = 1;
+   0.527 us [ 10858] |       } = 2; /* fib */
+   1.741 us [ 10858] |     } = 5; /* fib */
+   7.952 us [ 10858] |   } = 13; /* fib */
+            [ 10858] |   printf("%d\n", 13) {
+
+```
 
 
 ## Conclusion
