@@ -7,6 +7,7 @@ tags:
 - Linux
 - CentOS 
 - Server
+- Tutorials
 description: 로그아웃, 종료, 런레벨, 히스토리 등.
 categories:
 - CentOS Server Management

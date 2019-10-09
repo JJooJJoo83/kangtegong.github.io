@@ -7,6 +7,7 @@ tags:
 - Linux
 - CentOS 
 - Server
+- Tutorials
 description: YUM의 동작원리와 고급 사용법
 categories:
 - CentOS Server Management

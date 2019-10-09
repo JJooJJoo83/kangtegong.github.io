@@ -7,6 +7,7 @@ tags:
 - Linux
 - CentOS 
 - Server
+- Tutorials
 description: CD, DVD mount와 dismount
 categories:
 - CentOS Server Management

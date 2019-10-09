@@ -7,6 +7,7 @@ tags:
 - Linux
 - CentOS 
 - Server
+- Tutorials
 description: 경로, 파일, 폴더를 다루는 기본 명령어들
 categories:
 - CentOS Server Management

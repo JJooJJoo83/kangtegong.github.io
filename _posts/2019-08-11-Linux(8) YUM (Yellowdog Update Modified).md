@@ -7,6 +7,7 @@ tags:
 - Linux
 - CentOS 
 - Server
+- Tutorials
 description: RPM의 문제를 해결한 YUM
 categories:
 - CentOS Server Management

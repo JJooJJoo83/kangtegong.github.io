@@ -7,6 +7,7 @@ tags:
 - Linux
 - CentOS 
 - Server
+- Tutorials
 description: 사용자와 그룹을 관리해주는 리눅스 기본 명령어들
 categories:
 - CentOS Server Management

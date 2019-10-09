@@ -7,6 +7,7 @@ tags:
 - Linux
 - CentOS 
 - Server
+- Tutorials
 description: 원본파일을 가리키는 하드링크와 소프트링크
 categories:
 - CentOS Server Management

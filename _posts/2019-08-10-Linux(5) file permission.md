@@ -7,6 +7,7 @@ tags:
 - Linux
 - CentOS 
 - Server
+- Tutorials
 description: 파일의 소유권과 허가권
 categories:
 - CentOS Server Management

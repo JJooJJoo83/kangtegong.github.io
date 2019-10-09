@@ -7,6 +7,7 @@ tags:
 - Linux
 - CentOS 
 - Server
+- Tutorials
 description: 리눅스 상의 프로그램 설치를 위한 RPM
 categories:
 - CentOS Server Management
