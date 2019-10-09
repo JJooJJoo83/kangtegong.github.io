@@ -247,12 +247,13 @@ $ uftrace report
 ```
    21.995 us   21.995 us         227  __gnu_cxx::__normal_iterator::operator*
    21.823 us   21.823 us         225  __gnu_cxx::__normal_iterator::operator++
-
 ```
+
 이 찾고자 하는 원소인 225번 호출된 점을 통해 이를 알 수 있다.
 
-> 참고)
-> std::find 함수만 tracing한 결과에 대한 report
+> 참고) std::find 함수만 tracing한 결과에 대한 report
+
+
 ```
  Total time   Self time       Calls  Function
   ==========  ==========  ==========  ====================
@@ -266,7 +267,6 @@ $ uftrace report
     0.102 us    0.102 us           2  __gnu_cxx::__normal_iterator::base
     0.080 us    0.080 us           1  __gnu_cxx::__ops::_Iter_equals_val::_Iter_equals_val
     0.053 us    0.053 us           1  std::__iterator_category
-
 ```
 
 
@@ -277,8 +277,8 @@ $ uftrace report
 ```
 54.592 us   54.592 us         900  __gnu_cxx::__normal_iterator::operator++
 54.298 us   54.298 us         902  __gnu_cxx::__normal_iterator::operator*
-
 ```
+
 이와 같은 결과를 보인다는 점을 통해 이를 재확인 할 수 있다.
 
  
