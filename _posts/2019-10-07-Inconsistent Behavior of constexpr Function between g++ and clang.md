@@ -46,7 +46,7 @@ This document is written by [Minchul Kang](https://github.com/kangtegong)
 우선 `const`의 동작을 알아보기 위해 아래 예제 코드를 보자.
 간단한 피보나치 예제 코드이다.
 
-{% highilght cpp %}
+{% highilght c++ %}
 #include <cstdio>
 #include <cstdlib>
 const int fib(const int n)
@@ -172,7 +172,7 @@ $ uftrace -A fib@arg1/u -R fib@retval -A printf@arg1/s, args/i a.out
 다음의 피보나치 코드를 예로 들어보자.
 위 예시 코드에서 `const` 를 `constexpr` 로 바꾼 것에 불과하다.
 
-{% highlight cpp %}
+{% highlight c++ %}
 #include <cstdio>
 #include <cstdlib>
 constexpr int fib(const int n)
