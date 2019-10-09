@@ -11,10 +11,6 @@ categories:
 - uftrace
 ---
 
-### Inconsistent Behavior of constexpr Function between `gpp` and `clang`
-
-This document is written by [Minchul Kang](https://github.com/kangtegong)
-
 ## const & constexpr
 
 ### const

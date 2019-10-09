@@ -11,10 +11,6 @@ categories:
 - uftrace
 ---
 
-# STL comparison : std::find vs std::set::find
-
-This document is written by [Minchul Kang](https://github.com/kangtegong)
-
 ## std::find & std::set::find
 
 ### std::find
