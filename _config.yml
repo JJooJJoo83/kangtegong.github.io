@@ -58,7 +58,7 @@ links:
 
 # projects in header index
 projects:
-  - name: uos-oj-system
+  - name: uos-oj-system (private repo)
     url: https://github.com/kangtegong/oj-project
   - name: SecuGo
     url: https://github.com/beomps/SecuGo
