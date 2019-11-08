@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Inconsistent Behavior of constexpr Function between g++ and clang"
+title: "Inconsistent Behavior of constexpr in g++ and clang"
 image: ''
 date: 2019-10-07 09:24:06
 tags: 
