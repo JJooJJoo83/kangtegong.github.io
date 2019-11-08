@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[GIT] 지옥에서 온 Git-1 : 수업소개"
+title: "지옥에서 온 Git"
 image: ''
 date: 2019-10-07 09:24:06
 tags: 
@@ -11,7 +11,7 @@ categories:
 - Git
 ---
 
-## 수업소개
+## 1. 수업소개
 
 ### 버전관리시스템 
 git = 버전 관리 시스템
