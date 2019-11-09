@@ -25,9 +25,32 @@ description: "Some description about Me..."
 	</ul>
 </div>
 
+<h2>Career</h2>
+<div class="aboutme">
+	<ul class="recent">
+		NDA 제외<br/>
+		<li>(2019.8~) (Majun soft.) KT-IDC Server Management</li>
+		<li>(2018.10~) Likelion Lecturer</li>
+		<li></li>	
+	</ul>
+</div>
+
+<h2>Awards</h2>
+<div class="aboutme">
+	<ul class="recent">
+	의미없는 (장려 이하)수상 제외<br/>
+		<li>Contributon 2019 1st - 과학기술정보통신부장관상</li>
+		<li>Korean University Leadership Academy- 한겨레신문 사장상</li>
+		<li>Ahnlab Best Reporter</li>	
+		<li>Sejong Coding Challenge Week (Algorithm Competition) 2nd</li>	
+		<li>ACM-ICPC Regional 2018</li>
+	</ul>
+</div>
+
 <h2>Projects</h2>
 <div class="aboutme">
 	<ul class="recent">
+	실사용자가 없던 프로젝트는 표기하지 않습니다
 		{% for project in site.projects %}
 	    	<li><a href="{{ project.url}}"><h3 class="project-name" itemprop="name">{{ project.name }}</h3></a></li>
 	    {% endfor %}
