@@ -25,32 +25,9 @@ description: "Some description about Me..."
 	</ul>
 </div>
 
-<h2>Career</h2>
-<div class="aboutme">
-	<ul class="recent">
-	NDA는 표기하지 않습니다
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>	
-	</ul>
-</div>
-
-<h2>Awards</h2>
-<div class="aboutme">
-	<ul class="recent">
-	장려상 이하는 분량상 표기하지 않습니다
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>	
-	</ul>
-</div>
-
 <h2>Projects</h2>
 <div class="aboutme">
 	<ul class="recent">
-	실사용자가 없던 프로젝트는 표기하지 않습니다
 		{% for project in site.projects %}
 	    	<li><a href="{{ project.url}}"><h3 class="project-name" itemprop="name">{{ project.name }}</h3></a></li>
 	    {% endfor %}
