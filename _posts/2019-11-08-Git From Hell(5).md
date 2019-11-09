@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "지옥에서 온 Git-5"
+title: "지옥에서 온 Git-05"
 image: ''
 date: 2019-10-08 09:24:06
 tags: 
