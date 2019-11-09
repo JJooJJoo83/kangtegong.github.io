@@ -2,7 +2,7 @@
 layout: post
 title: "지옥에서 온 Git-11"
 image: ''
-date: 2019-10-18 31:24:06
+date: 2019-10-18 11:24:06
 tags: 
 - Git
 - Tutorials
