@@ -28,20 +28,20 @@ description: "Some description about Me..."
 <h2>Awards</h2>
 <div class="aboutme">
 	<ul class="recent">
-	크게 의미없는 (장려 이하)수상 제외<br/>
+	크게 의미없는 (장려 이하)수상 제외<br/><br/>
 		<li>Contributon 2019 1st - 과학기술정보통신부장관상</li>
 		<li>Korean University Leadership Academy 2018- 한겨레신문사장상</li>
 		<li>Ahnlab Best Reporter 2018</li>	
 		<li>Sejong Coding Challenge Week 2018 (Algorithm Competition) 2nd</li>	
 		<li>Sejong Coding Challenge Week 2017 (Algorithm Competition) 2nd</li>	
-		<li>ACM-ICPC Regional 2018</li>
+		<li>ACM-ICPC Regional 2018 본선</li>
 	</ul>
 </div>
 
 <h2>Recent Projects</h2>
 <div class="aboutme">
 	<ul class="recent">
-	실사용자 없었던 프로젝트 제외 <br/>
+	실사용자 없었던 프로젝트 제외 <br/><br/>
 		{% for project in site.projects %}
 	    	<li><a href="{{ project.url}}"><h3 class="project-name" itemprop="name">{{ project.name }}</h3></a></li>
 	    {% endfor %}
