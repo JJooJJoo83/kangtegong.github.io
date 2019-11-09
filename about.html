@@ -10,7 +10,7 @@ description: "Some description about Me..."
 <h2>소개</h2>
 <div class="aboutme">
 	<ul class="recent">
-		Kang Minchul
+		ㅁㅣㄴㅊㅓㄹ
 	</ul>
 </div>
 
@@ -50,9 +50,17 @@ description: "Some description about Me..."
 <h2>Projects</h2>
 <div class="aboutme">
 	<ul class="recent">
-	실사용자가 없던 프로젝트 제외 <br/>
+	실사용자 없었던 프로젝트 제외 <br/>
 		{% for project in site.projects %}
 	    	<li><a href="{{ project.url}}"><h3 class="project-name" itemprop="name">{{ project.name }}</h3></a></li>
 	    {% endfor %}
+	</ul>
+</div>
+
+<h2>Announcements</h2>
+<div class="aboutme">
+	<ul class="recent">
+		<li>GDG Campus 2019 : 오픈소스 체험기</li>
+		<li>Newbiethon 2018 : Crawling With Python</li>
 	</ul>
 </div>
