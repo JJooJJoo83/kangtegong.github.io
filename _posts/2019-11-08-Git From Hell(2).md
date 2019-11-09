@@ -11,17 +11,19 @@ categories:
 - Git
 ---
 
-## 버전관리의 본질 -1
+## 버전관리의 본질 -1 git 설치
 
 ### Windows
 
-[https://git-scm.com/](https://git-scm.com/)에서 git다운
+[https://git-scm.com/](https://git-scm.com/)에서 git을 다운로드하자.
 
-시작화면에서 git bash 실행
-Windows에서 Linux/Unix에서 사용하는 명령어 체계를 쓸 수 있게 하는 프로그램
+시작화면에서 git bash를 실행해보자.
+(git) bash는 Windows에서 Linux/Unix에서 사용하는 명령어 체계를 쓸 수 있게 하는 프로그램이다.
 
 잘 설치되었는지 확인하기 위해 
-`git` 명령어를 쳐 보자
+`git` 명령어를 쳐 보자.
+
+그럼 아래와 같은 글이 쭉 콘솔에 뜰 것이다.
 
 ```
 $ git
