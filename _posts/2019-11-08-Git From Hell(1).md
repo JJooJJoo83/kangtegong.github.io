@@ -14,7 +14,7 @@ categories:
 ## 1. 수업소개
 
 ### 버전관리시스템 
-git = 버전 관리 시스템
+git은 버전관리시스템의 일종이다.
 버전관리? 우리는 계속 해 오던 것
 report.pdf --> report_final.pdf --> report_real_final.pdf
 
