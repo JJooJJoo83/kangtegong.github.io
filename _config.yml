@@ -1,13 +1,13 @@
-title: 웹 서비스 런칭 모임
+title: 기술블로그
 email: tegongkang@gmail.com
 description: |
-  공동의 웹 기반 지식과 프로젝트 뼈대 위에
-  선별된 심화 주제를 덧붙인 서비스를 만듭니다. 
+  공부하고 글씁니다.
+  
 baseurl: ''
-url: 'https://web-together.github.io/'
+url: 'https://kangtegong.github.io/'
 timezone: Asia/Seoul 
 
-repository: web-together/web-together.github.io
+repository: kangtegong/kangtegong.github.io
 
 permalink: /:year/:month/:day/:title/
 
@@ -65,4 +65,4 @@ twitter:
 google_plus:
   username: 
 github_url:
-  username: web-together
+  username: kangtegong
