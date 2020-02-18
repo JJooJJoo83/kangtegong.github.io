@@ -1,5 +1,6 @@
+.DS_Store
 _site
 .sass-cache
-node_modules
-_drafts
-yarn.lock
+.jekyll-metadata
+.idea
+.ruby-version

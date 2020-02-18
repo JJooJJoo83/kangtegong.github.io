@@ -1,69 +1,68 @@
-# Site settings
-title: 얍
-description: "Tech Blog"
-baseurl: "" # for test: remove string '/space-jekyll-template' to ''
-url: "https://kangtegong.github.io" # for test: remove string 'http://victorvoid.github.io' to '' but in production: 'https://yourusername.github.io'
-
-# User settings
-username: Kang Minchul
-user_title: kangtegong
+title: 웹 서비스 런칭 모임
 email: tegongkang@gmail.com
-twitter_username: 
-github_username:  kangtegong
-linkedin_public_url:  # Example: For public profile 'www.linkedin.com/in/john-smith', 'john-smith' is your linkedin_public_url
-disqus_username: 
-profile_picture: https://avatars3.githubusercontent.com/u/47781146?s=460&v=4
+description: |
+  공동의 웹 기반 지식과 프로젝트 뼈대 위에
+  선별된 심화 주제를 덧붙인 서비스를 만듭니다. 
+baseurl: ''
+url: 'https://web-together.github.io/'
+timezone: Asia/Seoul 
 
-# Build settings
+repository: web-together/web-together.github.io
+
+permalink: /:year/:month/:day/:title/
+
+excerpt_separator: <!--more-->
+
 markdown: kramdown
-highlighter: rouge
-permalink: /:title/
 
-# html minify
-compress_html:
-  clippings: all
-  comments: all
-  endings: []
-  profile: false
+krandown:
+  input: GFM
+  highlighter: rouge
 
-# Links to include in menu navigation
-links:
-  section_1:
-    - title: home
-      url: /
-      key_trigger: 1
-    - title: my posts
-      url: /posts
-      key_trigger: 2
-    - title: series
-      url: /series
-      key_trigger: 3
-    - title: tags
-      url: /tags
-      key_trigger: 4
-    - title: about me
-      url: /about
-      key_trigger: 5
-  section_2:
-  #  - title: github
-  #    url: kangtegong
-  #    new_tab: true
-  #    key_trigger: g
-  #  - title: twitter
-  #    url: 
-  #    key_trigger: t
-  #  - title: search
-  #    url: ""
-  #    key_trigger: s #WARNING: search only works with "s"
+plugins:
+  - jekyll-paginate
 
-# projects in header index
-projects:
-  - name: online judge project
-    url: https://github.com/kangtegong/online-judge-project
-  - name: uftrace
-    url: https://github.com/kangtegong/uftrace
-  - name: SecuGo
-    url: https://github.com/beomps/SecuGo 
+paginate: 5
+paginate_path: '/page/:num/'
 
-# exclude my node related stuff
-exclude: ['package.json', 'src', 'node_modules']
+collections:
+  authors:
+    output: true
+    permalink: /authors/:path/
+  tags:
+    output: true
+    permalink: /tags/:path/
+
+defaults:
+  - scope:
+      path: ''
+      type: authors
+    values:
+      layout: author
+  - scope:
+      path: ''
+      type: tags
+    values:
+      layout: tag
+
+exclude: [README.md, Gemfile, Gemfile.lock]
+
+keep_files: [assets, files]
+github: [metadata]
+# iolo's custom
+author: 
+image: '/assets/images/default_blog_cover.jpg'
+asset_url: /assets
+#asset_url: //meta-kage.kakaocdn.net/dn/osa/blog/assets
+#asset_url: //t1.daumcdn.net/osa/blog/assets
+google_analytics:
+  ua: 
+facebook:
+  app_id: 
+  username: 
+twitter:
+  username: 
+google_plus:
+  username: 
+github_url:
+  username: web-together
