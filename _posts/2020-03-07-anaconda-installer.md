@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'System Engineering [0] : Linux Anaconda Installer'
+title: 'System Engineering[0] : Linux Anaconda Installer'
 author: minchul.kang
 date: 2020-03-07 12:00
 tags: [system-engineering]

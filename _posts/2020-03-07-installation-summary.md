@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'System Engineering [1] : installation summary'
+title: 'System Engineering[1] : installation summary'
 author: minchul.kang
 date: 2020-03-07 12:00
 tags: [system-engineering]
