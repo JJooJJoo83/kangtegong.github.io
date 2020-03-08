@@ -42,7 +42,21 @@ Troubleshooting
 
 `Troubleshooting`은 서버에 문제가 생겼을 떄 cd를 통해 복구할 수 있는 방법인데, 추후에 자세히 다시 알아볼 예정이다.
 
-우선은 `Install Red Hat Enterprise Linux 7.6`로 미디어테스트 없이 설치를 진행해보자. 인스톨러를 누른 시점부터 anaconda가 설치를 도와준다. `Ctrl Alt F1`를 누르면 아나콘다가 설치하는 과정을 직접 볼 수도 있다.
+우선은 `Test This media & Install Red Hat Enterprise Linux 7.6`로 media test를 돌린 후에 설치해보도록 하자. 이를 누른 시점부터 anaconda가 설치를 도와준다. `Ctrl Alt F1`를 누르면 아나콘다가 설치하는 과정을 직접 볼 수도 있다.
 
+![Checking 중이라고 하단에 표시된다](/files/se0-3.png)
+
+미디어 테스트가 끝나면 다음과 같이 본격적으로 설치 준비를 시작한다
+
+![Ctrl Alt F1](/files/se0-4.png)
+![하단에 anaconda라고 표시된다](/files/se0-5.png)
+
+그러면 아래와 같이 설치화면이 나온다. 이 곳 또한 anaconda installer의 도움을 받아 띄워진 GUI 형식의 설치화면이다.
+
+![설치화면](/files/se0-6.png)
 
 ## 설치 메뉴 설명
+
+### 언어
+
+### 
