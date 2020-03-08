@@ -40,13 +40,18 @@ pip freeze > requirements.txt
 
 ```
 pip install -r requirements.txt
+
+$ pip download $PATH -r requirements.txt
+$PATH에는 다운로드할 경로를 지정하면 되고 딱히 지정하지 않으실 경우에는 현재 경로에 다운로드
+
 ```
 명령어를 통해 텍스트 파일에 저장된 패키지 이름과 버전을 한 번에 pip로 설치해주는 방식으로 이루어졌다.
 
-> 다시 말해, 지금까지 파이썬 패키지 의존성 관리는 개발환경에서 패키지 리스트 기록 파일(requirements.txt)을 만든 뒤, 클라이언트 환경에서 해당 파일(requirements.txt)를 설치함으로서 이루어졌다.
+![requirements.txt 만드는 과정](/files/py-packages0-2.gif)
+
+> 다시 말해, 지금까지의 파이썬 패키지 의존성 관리는 개발환경에서 패키지 리스트를 기록한 파일 (requirements.txt)을 만든 뒤, 클라이언트 환경에서 해당 파일 (requirements.txt)를 설치함으로서 이루어졌다.
 
 ## 옆동네는 패키지 관리를 어떻게 할까? : npm, yarn
 
-pip와 같이 패키지 관리자임과 동시에 의존성 관리자역을 수행하고 있는 유틸리티로는 npm, yarn, cargo 등이 있다.
-
+pip와 같이 패키지 관리자임과 동시에 의존성 관리자역을 수행하고 있는 유틸리티로는 npm, yarn, cargo, brew 등이 있다. 이 포스트에서는 이들 중 npm과 yarn을 알아보기로 한다.
 
