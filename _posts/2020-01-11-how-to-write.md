@@ -6,10 +6,7 @@ date: 2020-01-11 12:00
 tags: [introduction]
 ---
 
-
-4주간 본 사이트에 포스팅하는 방법에 대해 알아봅시다.   
-이 포스트는 독자가 [이 github organization](https://github.com/web-together)의 member로 참여되었음을 전제 하에 설명합니다.   
-또한 독자가 markdown 문법을 알고 있다는 전제 하에 설명합니다.
+이 포스트는 독자가 markdown 문법을 알고 있다는 전제 하에 설명합니다.
 
 ## 저자 등록
 
