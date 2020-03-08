@@ -55,8 +55,26 @@ Troubleshooting
 
 ![설치화면](/files/se0-6.png)
 
-## 설치 메뉴 설명
+## 설치 메뉴 (Installation Summmary) 설명
 
-### 언어
+> 언어 설정은 필요한 언어에 맞게 설정하면 되므로 설명 생략. 참고로 설정한 언어에 따라 오류 메세지도 출력이 된다. (e.g. 한국어 선택시 에러 메세지도 한국어로 출력)
 
-### 
+우선 Installation Summary 항목을 보면 아래와 같이 구성되어 있음을 확인할 수 있다.
+
+![설치화면](/files/se0-7.png)
+
+```
+Localization
+    - Date & Time
+    - KeyBoard
+    - Language Support
+Software
+    - Installation Source 
+    - Software Selection
+System
+    - Installation Destination
+    - KDUMP
+    - Network & Hostname
+    - Security Policy
+```
+
