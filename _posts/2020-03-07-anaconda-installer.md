@@ -78,3 +78,31 @@ System
     - Security Policy
 ```
 
+### Date & Time
+
+![Date & Time](/files/se0-8.png)
+
+### Keyboard Layout
+
+![Keyboard Layout](/files/se0-9.png)
+
+### Language Support
+
+![Language Support](/files/se0-10.png)
+
+### Installation Source 
+![Installation Source](/files/se0-11.png)
+
+### Software Selection
+![Software Selection](/files/se0-12.png)
+
+### Installation Destination
+![Installation Destination](/files/se0-13.png)
+
+### KDUMP
+![Language Support](/files/se0-14.png)
+
+### Network & Hostname
+![Network & Hostname](/files/se0-15.png)
+
+### Security Policy
