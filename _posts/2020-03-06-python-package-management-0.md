@@ -55,3 +55,37 @@ $PATH에는 다운로드할 경로를 지정하면 되고 딱히 지정하지 �
 
 pip와 같이 패키지 관리자임과 동시에 의존성 관리자역을 수행하고 있는 유틸리티로는 npm, yarn, cargo, brew 등이 있다. 이 포스트에서는 이들 중 npm과 yarn을 알아보기로 한다.
 
+###################################################
+
+npm과 yarn은 둘 다 JavaScript의 패키지 관리자이다. pip와 마찬가지로 의존성 패키지(모듈)도 한꺼번에 설치 및 설치가 가능하다.
+
+### npm
+
+패키지 설치
+의존성 관리
+
+### yarn
+
+패키지 설치
+의존성 관리
+
+### npm/yarn vs pip
+
+ - 의존성 관리에 있어서 npm은 json yarn은 yarn
+ - 디렉토리별로 패키지 관리
+
+모드별 관리 
+
+으레 dev 전용 패키지~ production 전용 패키지 구분하는데 pip 는 따로 구분하지는 않음
+보통 아래와 같이 구분 
+
+python_root
+└── requirements
+    ├── common.txt
+    ├── dev.txt
+    └── prod.txt
+
+
+<JavaScipt의 의존성 관리>
+https://docs.npmjs.com/files/package.json
+https://docs.npmjs.com/files/package-lock.json.html

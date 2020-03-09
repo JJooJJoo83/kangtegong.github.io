@@ -52,3 +52,9 @@ Troubleshooting
 ![하단에 anaconda라고 표시된다](/files/se0-5.png)
 
 그러면 아래와 같이 설치화면이 나온다. 이 곳 또한 anaconda installer의 도움을 받아 띄워진 GUI 형식의 설치화면이다. 이후 설치과정은 installation summary 창에서 진행하는데, 이는 다음 포스트에서 다루도록 한다.
+
+### Referece
+[공식 사이트](https://fedoraproject.org/wiki/Anaconda)   
+https://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/6/html/installation_guide/s1-guimode-interface-x86   
+https://anaconda-installer.readthedocs.io/en/latest/  
+https://fedoraproject.org/wiki/Anaconda
