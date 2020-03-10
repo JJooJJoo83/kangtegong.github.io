@@ -66,6 +66,8 @@ Troubleshooting
 
 조금 더 기다리면 아래 사진과 같은 설치화면으로 이동하게 되는데, 
 
+![Ctrl Alt F1](/files/se0-7.png)
+
 1. Language Settings
 2. Time Settings
 3. Installation Source
@@ -76,10 +78,9 @@ Troubleshooting
 8. Root Password
 9. User Creation
 
-> 참고
-
-[x] : 이미 설정한 항목
-[!] : 아직 설정은 안했지만 꼭 해야하는 항목
+> 참고  
+[x] : 이미 설정한 항목  
+[!] : 아직 설정은 안했지만 꼭 해야하는 항목  
 [ ] : 선택 항목
 
 자세히 알아보면 위의 GUI 설치과정에서 본 [Installation Summary 항목](https://kangtegong.github.io/2020/03/07/installation-summary/)과 동일한 항목을 단지 CLI 형식으로 설정하는 것임을 알 수 있다.
