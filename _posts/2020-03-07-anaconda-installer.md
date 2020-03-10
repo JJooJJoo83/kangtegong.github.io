@@ -16,9 +16,11 @@ Anaconda는 Linux의 설치를 조금 더 사용자 친화적으로 수행할 �
 즉, 그래픽 형식의 설치 화면에서 설정값을 입력하는 것 만으로도 설치가 완료될 수 있게 된 게 anaconda 덕택인 셈이다. Anaconda가 없다면 파일시스템 공간 할당부터, 부팅을 어떻게 시켜야 하며, 커널은 어디에 있고,
 키보드 언어설정은 어떻게 할 것인지 등등 설정 파일을 하나하나 만들며 수동으로 집어 넣어야 했을 것이다. 
 
-그렇다면 Linux (RHEL 7.6) 설치 과정에서의 anaconda를 직접 눈으로 확인해보도록 하자.
+그렇다면 Linux (RHEL 7.6) 설치 과정에서의 anaconda를 GUI 방식으로 한 번, CLI 방식으로 한 번 직접 눈으로 확인해보도록 하자.
 
 ## 설치 과정에서의 anaconda
+
+### anaconda GUI
 
 > vmware로 작업하는 경우 easy installer 제거한 후 설치해야 한다. 그렇지 않으면 후술할 설치 과정에서의 항목들을 볼 겨를도 없이 모두 지나가버리게 된다..
 
@@ -51,7 +53,37 @@ Troubleshooting
 ![Ctrl Alt F1](/files/se0-4.png)
 ![하단에 anaconda라고 표시된다](/files/se0-5.png)
 
-그러면 아래와 같이 설치화면이 나온다. 이 곳 또한 anaconda installer의 도움을 받아 띄워진 GUI 형식의 설치화면이다. 이후 설치과정은 installation summary 창에서 진행하는데, 이는 다음 포스트에서 다루도록 한다.
+그러면 아래와 같이 설치화면이 나온다. 이 곳 또한 anaconda installer의 도움을 받아 띄워진 GUI 형식의 설치화면이다. 
+
+### anaconda CLI
+
+이번에는 다른 방식으로 설치해보자.
+
+아래 사진과 같이 처음 install 화면에서 `TAB`을 누르면 `vmlinuz initrd=initrd.img inst.stage2=hd.:LABEL=RHEL-7.6\x20Server.x86_64 quiet`라는 문구가 뜰텐데 그 뒤에 text 라고 치면 아까와는 다른 설치화면으로 이동하게 된다.
+
+![Ctrl Alt F1](/files/se0-5.png)
+![Ctrl Alt F1](/files/se0-6.png)
+
+조금 더 기다리면 아래 사진과 같은 설치화면으로 이동하게 되는데, 
+
+1. Language Settings
+2. Time Settings
+3. Installation Source
+4. Software selection
+5. Installation Destination
+6. Kdump
+7. Network Configuration
+8. Root Password
+9. User Creation
+
+> 참고
+
+[x] : 이미 설정한 항목
+[!] : 아직 설정은 안했지만 꼭 해야하는 항목
+[ ] : 선택 항목
+
+자세히 알아보면 위의 GUI 설치과정에서 본 [Installation Summary 항목](https://kangtegong.github.io/2020/03/07/installation-summary/)과 동일한 항목을 단지 CLI 형식으로 설정하는 것임을 알 수 있다.
+
 
 ### Referece
 [공식 사이트](https://fedoraproject.org/wiki/Anaconda)   
