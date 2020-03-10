@@ -1,4 +1,5 @@
 ---
 name: python-package-dependency
-title: '대패키지시대, requirements.txt 텍스트 파일 하나만 믿어도 정말 괜찮은 걸까'
+title: '파이썬 대패키지시대, requirements.txt 
+        텍스트 파일 하나만 믿어도 정말 괜찮은 걸까'
 ---
