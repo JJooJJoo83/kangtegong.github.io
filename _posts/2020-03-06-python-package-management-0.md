@@ -61,6 +61,8 @@ npm과 yarn은 둘 다 JavaScript의 패키지 관리자이다. pip와 마찬가
 
 ### npm
 
+![npm image](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/330px-Npm-logo.svg.png)
+
 npm은 이름부터가 Node Package Manager이기 때문에 Node.js를 설치하면 자동적으로 설치된다.
 또한 pip와 마찬가지로 `npm install 패키지이름` 명령어를 통해 의존성 패키지까지 간편하게 설치할 수 있다.
 npm 초기화를 위해 `npm init` 명령어를 입력하고 package name, version, description, license 등을 입력하면 입력한 정보에 맞는 [package.json](https://docs.npmjs.com/files/package.json) 파일이 생성된다.
@@ -113,6 +115,8 @@ Is this OK? (yes) yes
 [package-lock.json](https://docs.npmjs.com/files/package-lock.json.html) 파일이 자동으로 만들어진다. 의존성 업데이트와 같이 변화되는 버전 변경에 대해서도 동일한 node_module의 생성을 보장할 수 있게 된다.
 
 ### yarn
+
+![yarn-image](https://i.ytimg.com/vi/7n467QmiANM/maxresdefault.jpg)
 
 yarn은 npm의 성능과 보안을 개선하기 위해 facebook 개발자들이 만든 패키지 매니저이다.
 yarn 또한 npm과 마찬가지로 package.json 을 통해 이름, 설치된 패키지의 버전, 라이선스 등을 명시한다. 
