@@ -19,7 +19,7 @@ tags: [python-package-dependency]
 ## pip 
 
 많이들 알다시피 흔히 파이썬 패키지를 다운로드 받기 위해 pip를 이용한다. pip이란, 웹에 게시되어 있는 PyPI(Python Package Index) 아카이브에서 자동으로 패키지를 다운로드해서 설치해주는 유틸리티 중 하나이다.
-`pip install 패키지이름` 명령어 하나만으로 해당 패키지뿐 아니라 의존성 있는 모듈이나 패키지까지 간편하게 설치할 수 있게 된, 고맙고도 강력한 도구라 하겠다.  `install` 명령 이외의 유용한 명령어들은 아래와 같다.
+`pip install 패키지이름` 명령어 하나만으로 해당 패키지뿐 아니라 의존성 있는 모듈이나 패키지까지 간편하게 설치할 수 있게 된, 고맙고도 강력한 도구라 하겠다. `install` 명령 이외의 유용한 명령어들은 아래와 같다.
 
 ```
 pip search 패키지          : 패키지 검색
@@ -61,7 +61,7 @@ npm과 yarn은 둘 다 JavaScript의 패키지 관리자이다. pip와 마찬가
 
 ### npm
 
-![npm image](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/330px-Npm-logo.svg.png)
+![npm image](/files/py-packages0-3.png)
 
 npm은 이름부터가 Node Package Manager이기 때문에 Node.js를 설치하면 자동적으로 설치된다.
 또한 pip와 마찬가지로 `npm install 패키지이름` 명령어를 통해 의존성 패키지까지 간편하게 설치할 수 있다.
@@ -116,7 +116,7 @@ Is this OK? (yes) yes
 
 ### yarn
 
-![yarn-image](https://i.ytimg.com/vi/7n467QmiANM/maxresdefault.jpg)
+![yarn image](/files/py-packages0-4.png)
 
 yarn은 npm의 성능과 보안을 개선하기 위해 facebook 개발자들이 만든 패키지 매니저이다.
 yarn 또한 npm과 마찬가지로 package.json 을 통해 이름, 설치된 패키지의 버전, 라이선스 등을 명시한다. 
