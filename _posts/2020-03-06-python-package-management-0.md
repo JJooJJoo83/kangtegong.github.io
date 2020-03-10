@@ -133,6 +133,6 @@ $ yarn check                // 의존 패키지들이 프로젝트에서 이 프
 $ yarn outdated             // 업데이트가 필요한 패키지 출력
 ```
 
-### Next Post : npm/yarn vs pip
+### Next Post : <npm/yarn vs pip : pip 의존성 관리의 문제점>
 
-pip의 의존성 관리에 있어서의 문제와 더 나은 의존성 관리를 위한 노력
+타 의존성 관리자(npm과 yarn)들을 통해 알 수 있는 pip의 의존성 관리 측면에서의 개선점을 실험을 통해 알아보고, 더 나은 의존성 관리를 위한 노력들을 알아봅니다.
