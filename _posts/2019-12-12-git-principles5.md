@@ -102,7 +102,7 @@ Date:   Thu Dec 27 16:05:13 2019 +0900
     1
 
 ```
-![ref](/files/35.png)
+![ref](/files/gs-35.png)
 
 gistory로 확인보면 `refs/heads/master` 가 3번으로 수정되었음을 확인할 수 있다. (현재 내가 checkout한 브랜치인 master가 가지고 있는 최신 커밋이 3번으로 바뀐 셈)
 
@@ -124,7 +124,7 @@ git이 현재 브랜치의 최신 커밋 (HEAD이 가리키고 있는 내용)을
 
 `ORIG_HEAD`를 보면 우리가 삭제한 4번을 가리키고 있음을 알 수 있다
 
-![ref](/files/36.png)
+![ref](/files/gs-36.png)
 
 
 그리고 logs resfs heaads master를 보면 
@@ -135,7 +135,7 @@ git이 현재 브랜치의 최신 커밋 (HEAD이 가리키고 있는 내용)을
 다음과 같이 reset 명령이 수행되었다는 로그 정보와 함께
 reset을 수행하기 전 4번 커밋에 대한 정보도 같이 가지고 있음을 확인할 수 있다.
 
-![ref](/files/37.png)
+![ref](/files/gs-37.png)
 
 
 우리가 reset을 하기 전의 정보 (4번 커밋)가 어디에 있는지 알았으니
@@ -242,7 +242,7 @@ $ git branch
 
 이 쯤에서 gistroy를 새로고침해보자.
 
-![ref](/files/38.png)
+![ref](/files/gs-38.png)
 
 HEAD파일이 바뀌었음을 알 수 있는데,
 

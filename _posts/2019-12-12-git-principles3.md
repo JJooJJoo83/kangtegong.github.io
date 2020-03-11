@@ -55,8 +55,8 @@ index 파일에 적힌 f2.txt값과
 f2.txt 자체 내용에서 generate한 내용이 다르면
 f2.txt 파일이 수정되었음을 감지할 수 있다.
 
-![f2 수정1](/files/20.png)
-![f2 수정2](/files/21.png)
+![f2 수정1](/files/gs-20.png)
+![f2 수정2](/files/gs-21.png)
 
 이번에는 f2.txt를 add 해보자.
 ```
@@ -77,8 +77,8 @@ git은 이건 또 어떻게 아는 걸까?
 아래 사진을 보면 commit 된 f2.txt의 내용과 
 add된 objects 내의 f2.txt 내용은 다르다.
 
-![add vs commit ](/files/22.png)
-![add vs commit ](/files/23.png)
+![add vs commit ](/files/gs-22.png)
+![add vs commit ](/files/gs-23.png)
 
 만일 이 두 정보가 일치하지 않는다면,
 새로운 수정 파일이 add 되었고 commit 대기 상태임을 짐작할 수 있을 것이다.
@@ -96,8 +96,8 @@ commit이 만들어지면
 
 즉 working - staging area - repository의 해시값이 모두 일치하게 된다. 
 
-![add vs commit ](/files/24.png)
-![add vs commit ](/files/25.png)
+![add vs commit ](/files/gs-24.png)
+![add vs commit ](/files/gs-25.png)
 
 이렇게 세 hash 값이 모두 일치할 때야 비로소 git은 git status를 쳤을 때
 ```

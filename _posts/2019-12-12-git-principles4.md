@@ -21,7 +21,7 @@ git init
 
 바로 이 HEAD파일인데, 
 
-![HEAD](/files/26.png)
+![HEAD](/files/gs-26.png)
 
 HEAD는 init하면 자동으로 생성되며
 `ref: refs/heads/master`
@@ -29,7 +29,7 @@ HEAD는 init하면 자동으로 생성되며
 
 refs/heads/master또한 파일인데, 아직 어떠한 내용도 갖고 있지 않다.
 
-![HEAD](/files/27.png)
+![HEAD](/files/gs-27.png)
 
 그럼 한 번 커밋을 해 보며 이 파일에 어떤 변화가 생기는지 살펴보자.
 
@@ -47,7 +47,7 @@ gistory를 새로고침해 보면
 이걸 클릭해보면 object 아이디 갑을 가지고 있고 이걸 클릭해보면
 방금 커밋 한 내용을 가리킨다는 걸 알 수 있다
 
-![HEAD](28.png)
+![HEAD](/files/gs-28.png)
 
 커밋을 한 번 더 해보자.
 
@@ -60,7 +60,7 @@ $ git commit -m "2"
 gistory를 다시 새로고침해 보면
 이번에도 `refs/heads/master`가 바뀌었음을 알 수 있다.
 
-![HEAD](/files/29.png)
+![HEAD](/files/gs-29.png)
 
 이번에 안에 내용은 2를 가리킨다
 
@@ -112,11 +112,11 @@ $ git branch 	# exp 브랜치 확인
 
 gistory를 새로고침하면 두 개의 파일이 바뀌었는데, 
 그 중에 refs/heads/exp가 생겼다는 걸 알 수 있다.
-![branch](/files/30.png)
+![branch](/files/gs-30.png)
 
 그리고 이 파일은 최신 커밋을 가리킨다.
 (최신 커밋으로부터 가지가 뿜어져 나오는 것이니까 당연하다.)
-![branch](/files/31.png)
+![branch](/files/gs-31.png)
 
 여기서 이 .git/refs/heads/exp가 exp 브랜치 그 자체이다.
 CLI를 통해 진짜인지 확인해보자.
@@ -161,7 +161,7 @@ gistory를 새로고침하면 `HEAD` 파일이 바뀌었음을 알 수 있다.
 ref: `refs/heads/exp`를 가리키고,
 exp는 **exp의 최신 커밋**을 가리킨다
 
-![branch](/files/32.png)
+![branch](/files/gs-32.png)
 
 그럼 exp 브랜치에서 임의로 커밋을 생성해보자.
 
@@ -176,7 +176,7 @@ $ git commit -m "3"
 
 gistory를 새로고침해 보면 
 
-![branch](/files/33.png)
+![branch](/files/gs-33.png)
 
 `HEAD` 이번에도 역시 exp를 가리키고
 > 방금 커밋을 exp 브랜치에서 했으니까

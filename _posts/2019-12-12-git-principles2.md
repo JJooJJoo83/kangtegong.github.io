@@ -15,7 +15,7 @@ tags: [git-analysis]
 $ git commit -m "1"
 $ git log
 ```
-![git commit](/files/9.png)
+![git commit](/files/gs-9.png)
 
 just now에 해당되는 게 5개나 생겼고,
 시간 상 index, objects도 commit 직전에 영향을 받음을 확인할 수 있다.
@@ -55,7 +55,7 @@ f1, f2, f3 라는 각각의 파일의 **내용**이 무엇인가에 대한 정�
 
 > tree 내의 해시값을 눌러보면 각각의 해시값이 f1/f2/f3의 내용을 담고 있음을 알 수 있다.
 
-![tree](/files/10.png)
+![tree](/files/gs-10.png)
 
 
 정리하자면, commit  한 결과는 object 파일로 저장되고
@@ -84,8 +84,8 @@ index에는 add 된 f2의 정보가,
 objects/27/95c87096b42d4b7b8fda82a67dabded5c72c97 에는 
 f2.txt 안의 내용이 들어간다는 걸 알 수 있다.
 
-![f2 git add ](/files/11.png)
-![f2 git add index ](/files/12.png)
+![f2 git add ](/files/gs-11.png)
+![f2 git add index ](/files/gs-12.png)
 
 이 상태에서 
 ```
@@ -97,8 +97,8 @@ $ git commit -m "2"
 커밋이 담긴 객체인 
 `objects/3d/09135ffd802731c47e87386719d99e20e8895a`가 생긴다
 
-![f2 commit](/files/13.png)
-![f2 commit](/files/14.png)
+![f2 commit](/files/gs-13.png)
+![f2 commit](/files/gs-14.png)
 
 내부를 확인해 보면 
 
@@ -107,21 +107,21 @@ parent라는게 생겼음을 확인할 수 있다.
 그리고 짐작해볼 수 있겠지만 
 parent를 클릭하면 이 커밋의 이전 커밋을 볼 수 있다.
 
-![f2 commit](15.png)
+![f2 commit](/files/gs-15.png)
 
 그리고 여기서 알 수 있는 중요한 사실은, 
 
 첫 번째 커밋과 두 번째 커밋에서 tree 값이 다르다는 것이다.
 
-![f2 commit](/files/16.png)
-![f2 commit](/files/17.png)
+![f2 commit](/files/gs-16.png)
+![f2 commit](/files/gs-17.png)
 
 
 첫번째 커밋이 가리키는 f2.txt 객체를 보면
 두번째 커밋이 가리키는 f2.txt 객체이 서로 다르다.
 
-![f2 tree1](/files/18.png)
-![f2 tree](/files/19.png)
+![f2 tree1](/files/gs-18.png)
+![f2 tree](/files/gs-19.png)
 
 
 정리하자면, 

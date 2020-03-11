@@ -43,7 +43,7 @@ drwxr-xr-x 1 minchul 197121   0 12월 20 15:20 refs/
 ```
 $ gistory
 ```
-![gistory실행화면](/files/0.png)
+![gistory실행화면](/files/gs-0.png)
 
 지금 띄워진 좌측의 리스트가 .git 내부의 파일 전체라고 보면 된다.
 
@@ -61,7 +61,7 @@ f1.txt를 새로 만든 뒤,
 
 f1.txt는 버전 track을 시작도 안했기 때문이다.
 
-![gistory실행화면](/files/1.png)
+![gistory실행화면](/files/gs-1.png)
 
 그렇다면 이번에는 f1.txt를 add 한 뒤 gistory를 새로고침해보자.
 
@@ -84,7 +84,7 @@ gistory 내부에 변화가 생겼다.
 
 obejcts의 파일이 무엇인지 눌러보자.
 
-![objects](/files/2.png)
+![objects](/files/gs-2.png)
 
 objects 디렉토리 안에는 f1.txt의 내용(즉, a 라는 문자)이 담겨있다.
 
@@ -103,7 +103,7 @@ git add 한 f1.txt 파일**내부의 내용**(이 예제의 경우, a)에 관련
 
 이번에는 index를 눌러보자. 
 
-![index](/files/3.png)
+![index](/files/gs-3.png)
 
 > f1.txt라는 파일은 78981922613b2afb6025042ff6bd878ac1994e85 로 시작하는 어떠한 정보에 담겨있다 
 
@@ -128,16 +128,16 @@ gistory는 어떤 변화가 생길까?
 
 두 개의 파일이 달라졌다.
 
-![f2 add](/files/4.png)
+![f2 add](/files/gs-4.png)
 
 index 안에는 f2.txt의 내용은 이것입니다 라고 적혀있다.
 
-![f2 index](/files/5.png)
+![f2 index](/files/gs-5.png)
 
 
 그리고 그에 따라 objects/b6/802 ...  가 보면 그 내용이 담겨있음을 확인할 수 있다.
 
-![f2 objects](/files/6.png)
+![f2 objects](/files/gs-6.png)
 
 ---
 
@@ -156,11 +156,11 @@ gistory를 확인해보면
 
 f1을 add했을 때와 동일한 object가 생겼다는 걸 알 수 있고,
 
-![f3object](/files/7.png)
+![f3object](/files/gs-7.png)
 
 index를 가 봐도 f1과 f3가 같은 object를 가리키고 있음을 확인할 수 있다.
 
-![f3index](/files/8.png)
+![f3index](/files/gs-8.png)
 
 
 즉, 이를 통해 알 수 있는 것은,

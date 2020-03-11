@@ -42,7 +42,7 @@ git init
 [http://localhost:8805/](http://localhost:8805/) 
 
 gistory의 기본 인터페이스는 다음과 같다.
-![gistory실행화면](/files/0.png)
+![gistory실행화면](/files/gs-0.png)
 
 좌측에 리스트로 보이는 것이 .git 폴더 안에 있는 모든 파일들의 목록이다.
 

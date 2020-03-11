@@ -129,7 +129,6 @@ wrapt==1.12.1
 ## 3. 환경에 따른 설치 에러 문제
 
 다음은 `pip install -r requirements` 명령어에서 오는 문제이다.
-c
 
 ### Next Post : 더 나은 의존성 관리를 위한 노력1, pipenv
 
