@@ -126,9 +126,38 @@ wrapt==1.12.1
 
 아래 패키지 목록들만 봐서는 어떤 것이 tensorflow와 함께 설치된 패키지인지, keras와 함께 설치된 패키지인지, django와 함께 설치된 패키지인지 알기 어렵다. 이 상황에서 앞으로 프로젝트를 진행하며 패키지들을 더 설치한다면, 패키지 의존성 파악은 매우 어려워질 겻이다.
 
-## 3. 환경에 따른 설치 에러 문제
+## 3. 개발 환경에 따른 설치 에러 문제
 
 다음은 `pip install -r requirements` 명령어에서 오는 문제이다.
+
+여기까지 읽은 독자라면 이렇게도 반문할 수 있을 것 같다.
+
+> 그냥 가상환경으로 나눠 담으면 되는 거 아닌가?
+
+필자도 그렇게 생각을 했었고, 지금까지도 그렇게 개발을 해 왔지만, 여기서도 문제가 생긴다.
+바로 IDE 에 종속적인 설치 명령어가 나올 우려가 있다는 점이다.
+
+conda environment에서 만든, 이를테면 requirements.yaml을 
+venv로 만든 환경에서 pip install 하면 설치에 오작동이 생길 수 있다. 
+
+이하는 실제 오류 장면이다
+
+![가상환경에 따른 설치오류](/232.gif)
+
+
+conda로 가상환경(conda environment)을 만든 뒤,
+
+```
+conda create -n my_env python=3.6
+activate my_env
+```
+
+```
+pip install tensorflow
+pip freeze
+```
+
+패키지 관리를 위해 새로운 IDE까지 통일해야 한다는 것은 배보다 배꼽이 더 큰 일일 것이다.
 
 ### Next Post : 더 나은 의존성 관리를 위한 노력1, pipenv
 
