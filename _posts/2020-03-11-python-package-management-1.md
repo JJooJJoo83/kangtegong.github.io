@@ -75,7 +75,7 @@ Collecting tensorflow-estimator<2.2.0,>=2.1.0rc0 (from tensorflow)
 Collecting oauthlib>=3.0.0 (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard<2.2.0,>=2.1.0->tensorflow)
   Using cached https://files.pythonhosted.org/packages/05/57/ce2e7a8fa7c0afb54a0581b14a65b56e62b5759dbc98e80627142b8a3704/oauthlib-3.1.0-py2.py3-none-any.whl
 tensorboard 2.1.1 has requirement setuptools>=41.0.0, but you'll have setuptools 40.8.0 which is incompatible.
-Installing collected packages: numpy, six, h5py, keras-applications, opt-einsum, protobuf, wrapt, google-pasta, markdown, cachetools, pyasn1, rsa, pyasn1-modules, google-auth, chardet, urllib3, certifi, idna, requests, wheel, werkzeug, absl-py, grpcio, oauthlib, requests-oauthlib, google-auth-oauthlib, tensorboard, keras-preprocessing, tensorflow-estimator, termcolor, gast, scipy, astor, tensorflow
+tensorflow-estimator, termcolor, gast, scipy, astor, tensorflow
   Running setup.py install for wrapt: started
     Running setup.py install for wrapt: finished with status 'done'
   Running setup.py install for absl-py: started
