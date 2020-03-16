@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'pip 패키지 의존성 관리의 문제점'
+title: '1. pip 패키지 의존성 관리의 문제점'
 author: minchul.kang
 date: 2020-03-11 12:00
 tags: [python-package-dependency]

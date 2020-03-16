@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'pip와 옆동네 javascript 패키지 관리자, npm & yarn'
+title: '0. pip와 옆동네 javascript 패키지 관리자, npm & yarn'
 author: minchul.kang
 date: 2020-03-06 12:00
 tags: [python-package-dependency]
