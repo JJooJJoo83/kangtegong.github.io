@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '2. 더 나은 python 의존성 관리를 위한 노력1, pipenv'
+title: '2. 더 나은 python 의존성 관리를 위한 노력(1) : pipenv'
 author: minchul.kang
 date: 2020-03-15 12:00
 tags: [python-package-dependency]
@@ -12,9 +12,9 @@ tags: [python-package-dependency]
 
 [기존 포스트](https://kangtegong.github.io/2020/03/11/python-package-management-1/)를 보고오신 독자분들은 아시겠지만, `pip freeze > requirements.txt`하나만으로, pip에게 패키지 (의존성) 관리를 일임하는 데에는 아래와 같은 문제들이 있었다.
 
-1. 개발에서 발생하는 문제 : 상황별 패키지 관리의 어려움
-2. 유지보수에서 발생하는 의존성 관리 문제 : tracking의 어려움
-3. 설치에서 발생하는 문제 : 환경에 따른 설치 에러 문제
+1. **개발에서 발생하는 문제** : 상황별 패키지 관리의 어려움
+2. **유지보수에서 발생하는 의존성 관리 문제** : tracking의 어려움
+3. **설치에서 발생하는 문제** : 환경에 따른 설치 에러 문제
 
 이러한 문제를 그 동안 필자만 의식하고 있었던 것은 분명 아니었기에, '보다 나은 패키지 관리자'에 대한 열망으로 세계 각지에서 대안을 내놓기 시작했다.
 
@@ -228,7 +228,7 @@ Installing dependencies from Pipfile.lock (deb801)…
 
 > 참고로 Pipfile.lock의 develop 항목에도 잘 반영이 되었다.
 
-### 기타 편의 기능 (의존성 그래프)
+## 기타 편의 기능 (의존성 그래프)
 
   `pipenv graph` 명령어를 통해 패키지 의존관계를 더 명확히 확인할 수 있다.
   아래를 보면, Django==3.0.4 패키지에 의존적인 패키지 `asgiref`, `pytz`, `sqlparse`를 한 눈에 파악할 수 있을 뿐 아니라, 요구되는 버전(required)과 실제 설치된 버전(installed)도 확인할 수 있다.
@@ -256,15 +256,18 @@ Installing dependencies from Pipfile.lock (deb801)…
     - wcwidth [required: Any, installed: 0.1.8]
     ```
 
-## 기존의 문제 해결
+## 기존 pip의 문제 해결
 
-1. 개발용, 배포용 패키지를 나누어 관리할 수 있다.
+### 1. 개발용, 배포용 패키지를 나누어 관리할 수 있다.
+  
   큰 의의 중 하나이다. pipenv를 이용한다면 배포시에는 `$ pipenv install` 명령어로 배포용 패키지만 설치할 수 있고, 개발환경 세팅을 위해서는 `$ pipenv install --dev` 명령어를 통해 개발용 패키지들 포함한 모든 패키지들을 설치할 수 있게 되었다.
 
-2. `requirements.txt`보다 훨씬 정갈하고 합리적으로 의존성 패키지들을 관리할 수 있다. (package tracking 용이)
+### 2. `requirements.txt`보다 훨씬 정갈하고 합리적으로 의존성 패키지들을 관리할 수 있다. (package tracking 용이)
+  
   의존성 그래프를 통해 확인할 수 있었던 대목이다. 기존 requirements.txt 에서는 모든 패키지들의 이름과 버전을 나열했기 때문에 어떤 패키지가 어떤 패키지에 의존적인지 알기 어려웠지만, `pipenv graph`등의 명령어를 통해 이제는 좀 더 명확하게 확인해볼 수 있었다.
 
-3. 더 이상 가상환경과 패키지관리자를 독립적으로 사용할 필요가 없다.
+### 3. 더 이상 가상환경과 패키지관리자를 독립적으로 사용할 필요가 없다.
+  
   개인적으로 pipenv에게 가장 감사한 부분이다. virtualenv (혹은 venv) 를 혼용하면서 사용할 때 발생하는 문제 (개발환경의 종류에 따른 설치 오류)를 사전에 방지할 수 있다.
 
 ## 그러나...
@@ -275,7 +278,7 @@ Installing dependencies from Pipfile.lock (deb801)…
 2. 느리다
 3. 에러
 
-### Next Post : 더 나은 의존성 관리를 위한 노력2, poetry
+### Next Post : 더 나은 의존성 관리를 위한 노력(2) : poetry
 
 역시 pipenv 하나로는 "그 뒤로 그들은 행복하게 살았답니다"와 같은 결론을 내릴 수는 없었다.
 결국 패키지 의존성 관리에 있어 새로운 후발 주자가 필요한 셈인데, 다행히도 생겨난지 얼마 안 된 패키지 관리자가 있다. 바로 poetry라는 녀석이다. 다음 포스트에서는 이 poetry에 대해서 알아보도록 하겠다.  
