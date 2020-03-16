@@ -36,8 +36,8 @@ pipenv를 이용하여 프로젝트를 개발하면 자동으로 가상환경이
 
 ## pipenv 기본 사용
 
-그럼 pipenv를 한 번 사용해보자. pipenv를 설치했다면, 프로젝트 폴더를 하나 만들어주고(필자는 test라고 이름을 지었다),
-그 안에서 `pipenv install`명령어를 통해 이 폴더 안에서 가상환경과 패키지 관리를 시작해 보도록 하자.
+그럼 pipenv를 한 번 사용해보자. 참고로 굳이 설치하지 않고도 [이 곳](https://rootnroll.com/d/pipenv/
+)에서 브라우저상으로 실습해볼 수도 있다. pipenv를 설치했다면, 프로젝트 폴더를 하나 만들어주고(필자는 test라고 이름을 지었다), 그 안에서 `pipenv install`명령어를 통해 이 폴더 안에서 가상환경과 패키지 관리를 시작해 보도록 하자.
 
 ```
 $ mkdir test
@@ -344,7 +344,3 @@ Commands:
   uninstall  Un-installs a provided package and removes it from Pipfile.
   update     Runs lock, then sync.
 ```
-
-### 참고2 : pipenv 브라우저에서 사용해보기
-
-https://rootnroll.com/d/pipenv/
