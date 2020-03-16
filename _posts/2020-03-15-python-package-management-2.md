@@ -262,7 +262,7 @@ Installing dependencies from Pipfile.lock (deb801)…
   큰 의의 중 하나이다. pipenv를 이용한다면 배포시에는 `$ pipenv install` 명령어로 배포용 패키지만 설치할 수 있고, 개발환경 세팅을 위해서는 `$ pipenv install --dev` 명령어를 통해 개발용 패키지들 포함한 모든 패키지들을 설치할 수 있게 되었다.
 
 2. `requirements.txt`보다 훨씬 정갈하고 합리적으로 의존성 패키지들을 관리할 수 있다. (package tracking 용이)
-  
+  의존성 그래프를 통해 확인할 수 있었던 대목이다. 기존 requirements.txt 에서는 모든 패키지들의 이름과 버전을 나열했기 때문에 어떤 패키지가 어떤 패키지에 의존적인지 알기 어려웠지만, `pipenv graph`등의 명령어를 통해 이제는 좀 더 명확하게 확인해볼 수 있었다.
 
 3. 더 이상 가상환경과 패키지관리자를 독립적으로 사용할 필요가 없다.
   개인적으로 pipenv에게 가장 감사한 부분이다. virtualenv (혹은 venv) 를 혼용하면서 사용할 때 발생하는 문제 (개발환경의 종류에 따른 설치 오류)를 사전에 방지할 수 있다.
