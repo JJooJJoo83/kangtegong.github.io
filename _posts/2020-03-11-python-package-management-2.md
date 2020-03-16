@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '파이썬 패키지 관리[2]: 더 나은 의존성 관리를 위한 노력1, pipenv'
+title: '더 나은 python 의존성 관리를 위한 노력1, pipenv'
 author: minchul.kang
 date: 2020-03-11 12:00
 tags: [python-package-dependency]
