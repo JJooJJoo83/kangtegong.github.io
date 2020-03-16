@@ -265,8 +265,7 @@ Installing dependencies from Pipfile.lock (deb801)…
 
 ## 그러나...
 
-그러나, pipenv는 크고 작은 비판에 맞닥뜨리게 되었다.[https://chriswarrick.com/blog/2018/07/17/pipenv-promises-a-lot-delivers-very-little/#id15](이 링크)에서 제법 신랄한 비판을 볼 수 있는데,
-요약하자면 다음과 같다.
+그러나, pipenv는 크고 작은 비판에 맞닥뜨리게 되었다.[이 링크](https://chriswarrick.com/blog/2018/07/17/pipenv-promises-a-lot-delivers-very-little/#id15)에서 (pipenv 유저들의 마음을 대변하는) 제법 신랄한 비판을 볼 수 있는데, 요약하자면 다음과 같다.
 
 1. 늦은 업데이트
 2. 느리다
