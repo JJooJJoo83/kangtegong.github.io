@@ -108,6 +108,7 @@ Updated Pipfile.lock (4f9dd2)!
 Installing dependencies from Pipfile.lock (4f9dd2)…
   ================================ 4/4 - 00:00:04
 ```
+
 위와 같이 django를 설치하고 난 뒤, (`pip install django`가 아닌 `pipenv install django`임에 유의하자)
 Pipfile을 열어보자.
 
@@ -141,6 +142,7 @@ Updated Pipfile.lock (4f9dd2)!
 ```
 
 > Pipfile.lock
+
 ```
 $ cat Pipfile.lock 
 {
