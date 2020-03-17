@@ -3,7 +3,7 @@ layout: post
 title: 'Inconsistent behavior of constexpr'
 author: minchul.kang
 date: 2020-03-17 12:00
-tags: [python-package-dependency]
+tags: [c++]
 ---
 
 ## const & constexpr
