@@ -393,14 +393,14 @@ django 3.0.4 A high-level Python Web framework that encourages rapid development
 2. docker 친화적
 3. 기존 legacy를 존중한다
   poetry.lock파일로부터 requirements.txt생성
-4. pipenv에 비해 dependency resolution이 더 뛰어나다 [참고](https://github.com/python-poetry/poetry#what-about-pipenv
+4. pipenv에 비해 dependency resolution이 더 뛰어나다 [[참고]](https://github.com/python-poetry/poetry#what-about-pipenv
 )
 
 ## 그러나, 아직은 시기상조인 이유
 
 버그, 에러 but 새로운 버전 계속해서 릴리즈 되는 중. 하지만 피드백 속도 하루 커밋 양, 릴리즈 노트 매우 빠르다.
 
-## pythonista들이 나아가야 할 길
+## 우리들이 나아가야 할 길
 
  1. requirements.txt 멈추기 (심지어는 pyconkr 공식 사이트도 requirements.txt 사용..)
  2. pip-tools 
