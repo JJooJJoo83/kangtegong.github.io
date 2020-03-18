@@ -14,6 +14,8 @@ tags: [python-package-dependency]
 
 ## 설치 및 기본 사용법
 
+상세한 사용법은 poetry documentation에 너무나 잘 나와 있으므로 [공식 documenation](https://python-poetry.org/docs/)을 참고하길 추천한다.
+
 ### 설치
 
 poetry는 pipenv에 비해 공식 문서가 비교적 친절하게 나와있다. 기본 설치는 curl을 이용하여 아래와 같이 설치할 수 있다.
@@ -309,13 +311,15 @@ build-backend = "poetry.masonry.api"
 
 ### 개발환경 구현
 
-pyproject.toml 에 있는 프로젝트 일괄 설치하기
+pyproject.toml가 있는 프로젝트를 내 개발환경에 일괄 설치하기
 
 `poetry install`
 
 ### 패키지 목록 확인
 
 `poetry show`
+
+설치된 패키지 목록 출력. 버전과 이게 뭐 하는 패키지인지 간략하게 써 주는 센스..
 
 ```
 $ poetry show
@@ -340,6 +344,8 @@ zipp               3.1.0  Backport of pathlib-compatible object wrapper for zip 
 ```
 
 `poetry show --tree`
+
+현재 설치된 (개발 전용 패키지까지 포함한) 모든 의존성 패키지 트리 형태로 출력하기
 
 ```
 $ poetry show --tree
@@ -367,6 +373,8 @@ pytest 5.4.1 pytest: simple powerful testing with Python
 
 `poetry show --no-dev --tree`
 
+개발 전용 패키지를 제외한 의존성 트리 그리기
+
 ```
 django 3.0.4 A high-level Python Web framework that encourages rapid development and clean, pragmatic design.
 ▒▒▒▒▒▒ asgiref >=3.2,<4.0
@@ -383,10 +391,10 @@ django 3.0.4 A high-level Python Web framework that encourages rapid development
 
 1. pipenv에 비해 lock파일을 생성하는 속도도 빠르며, 실 사용 및 배포환경에서 활용중입니다.
 2. docker 친화적
-3. 기존 legacy 존중
+3. 기존 legacy를 존중한다
   poetry.lock파일로부터 requirements.txt생성
-4. pipenv에 비해 dependency resolution이 더 뛰어나다
-https://github.com/python-poetry/poetry#what-about-pipenv
+4. pipenv에 비해 dependency resolution이 더 뛰어나다 [참고](https://github.com/python-poetry/poetry#what-about-pipenv
+)
 
 ## 그러나, 아직은 시기상조인 이유
 
