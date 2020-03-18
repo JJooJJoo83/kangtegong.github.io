@@ -6,15 +6,17 @@ date: 2020-03-17 12:00
 tags: [python-package-dependency]
 ---
 
-> pip의 (의존성 관리에 있어서의) 문제점을 해결하기 위한 poetry를 알아봅니다.
+> pip의 (의존성 관리에 있어서의) 문제점을 해결하기 위한 [poetry](https://python-poetry.org)를 알아봅니다.
  
 ## 들어가며
 
-이전 포스트에서는 pip가 가지고 있는 (패키지 의존성 관리 측면에서의) 고질적 문제를 해결해주는 pipenv에 대해서 알아보았다. 똫한 pipenv에 모든 패키지관리를 일임하기 어려운 이유에 대해서도 알아보았다. 이번 포스트에서는 비교적 후발주자인 [poetry](https://python-poetry.org)에 대해 알아보도록 하겠다.
+이전 포스트에서는 pip가 가지고 있는 (패키지 의존성 관리 측면에서의) 고질적 문제를 해결해주는 pipenv에 대해서 알아보았다. 또한 pipenv에게 모든 패키지관리를 일임하기 어려운 이유에 대해서도 알아보았다. 
+
+이번 포스트에서는 poetry가 pipenv에 비하면 어떤 점이 나은지, 왜 필자는 poetry를 새로운 의존성 패키지 관리자의 희망으로 꼽는지, 나아가 현실적인 걸림돌은 무엇이며 poetry가 패키지 관리자로서 자리매김하기 위해서는 어떤 노력들이 필요한지에 대해 중점적으로 알아보도록 하겠다.
 
 ## 설치 및 기본 사용법
 
-상세한 사용법은 poetry documentation에 너무나 잘 나와 있으므로 [공식 documenation](https://python-poetry.org/docs/)을 참고하길 추천한다.
+상세한 사용법은 poetry documentation에 너무나 잘 나와 있으므로 [공식 documenation](https://python-poetry.org/docs/)을 참고하길 추천한다. 
 
 ### 설치
 
@@ -52,9 +54,10 @@ correct environment, but you may need to restart your current shell.
 
 ### 프로젝트 시작
 
-poetry로 관리되는 프로젝트는 `poetry init` 이나 `poetry new 프로젝트_이름` 명령어로 시작할 수 있다.
-`poetry init` 은 이미 존재하는 프로젝트에서 의존성 관리를 시작할 경우, `poetry new` 명령어는 새로운 프로젝트를 만들며 관리를 시작하고자 할 경우 사용하는 명령어이다. 두 경우 모두 poetry 자체적으로 가상환경을 생성해주고, 
-pyproject.toml 를 생성해준다. 
+poetry로 관리되는 프로젝트는 `poetry init` 이나 `poetry new 프로젝트이름` 명령어로 시작할 수 있다.
+`poetry init` 은 이미 존재하는 프로젝트에서 의존성 관리를 시작할 때, `poetry new` 명령어는 새로운 프로젝트를 만들며 관리를 시작하고자 할 때 사용하는 명령어이다. 두 경우 모두 poetry 자체적으로 가상환경을 생성해주고, 의존성 패키지 관리를 담당 파일 pyproject.toml 를 생성해준다. 
+
+`poetry init` 명령어로 poetry를 시작하면 npm이나 yarn이 그러했듯 패키지 이름, 버전, 설명 등등을 물어본다. 답변해주며 poetry를 초기화해 주자.
 
 ```
 $ poetry init
@@ -105,10 +108,7 @@ Do you confirm generation? (yes/no) [yes]
 
 ```
 
-npm 처럼 시작할 때 이것저것 물어본다
-
-
-자동 생성된 pyproject.toml 보기
+`poetry init`을 통해 initialization이 완료 되었다면 위에서 언급했듯 pyproject.toml파일이 생기는 걸 확인할 수 있을 것이다. 이 파일 내부를 한 번 자세히 들여다보자.
 
 ```
 [tool.poetry]
@@ -127,10 +127,11 @@ requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
 
 ```
-
 ### 패키지 추가/ 삭제
 
-`poetry add 패키지이름` (삭제할 때는 `poetry remove 패키지이름` 하면 의존성 패키지까지 함께 삭제)
+poetry로 관리되는 프로젝트에서 새로운 패키지를 추가하는 명령어는 `poetry add 패키지이름`이다. 반대로 삭제할 때는 `poetry remove 패키지이름`이다. 참고로 패키지를 삭제하면 의존성 패키지까지 함께 삭제된다.
+
+한 번 django 패키지를 `poetry add django` 명령어로 추가해주자.
 
 ```
 $ poetry add django
@@ -142,7 +143,6 @@ Resolving dependencies... (5.2s)
 
 Writing lock file
 
-
 Package operations: 4 installs, 0 updates, 0 removals
 
   - Installing asgiref (3.2.5)
@@ -152,7 +152,9 @@ Package operations: 4 installs, 0 updates, 0 removals
 
 ```
 
-lock 파일 (poetry.lock)이 자동 생성되었음을 알 수 있다.
+django가 잘 추가 되었다. 패키지를 처음으로 추가해주고 나면 자동으로 lock 파일 (poetry.lock)이 자동 생성되었음을 확인할 수 있다.
+
+lock 파일 내부를 한 번 자세히 들여다보자.
 
 ```
 $[[package]]
@@ -237,7 +239,7 @@ Package operations: 4 installs, 0 updates, 0 removals
   - Installing django (3.0.4)
 ```
 
-그리고 django 설치 직후 pyproject.toml
+그리고 django 설치 직후 pyproject.toml도 한 번 들여다보자.
 
 ```
 [tool.poetry]
@@ -258,7 +260,9 @@ build-backend = "poetry.masonry.api"
 
 ```
 
-개발 전용으로 패키지를 추가하려면 `--dev` 옵션을 주면 된다.
+참고로, 그냥 `poetry add` 명령어는 배포용 패키지를 설치하는 명령어이다.
+개발 단계에서만 사용하는 임시 패키지, 즉 개발 전용으로 패키지를 추가하려면 `--dev` 옵션을 주면 된다.
+한 번 pytest를 개발 전용 패키지로 설치해보자.
 
 ```
 $ poetry add --dev pytest
@@ -287,7 +291,8 @@ Package operations: 13 installs, 0 updates, 0 removals
   - Installing pytest (5.4.1)
 
 ```
-pyproject.toml
+
+개발 전용으로 잘 추가되었는지를 확인하려면 pyproject.toml를 보면 된다.
 
 ```
 [tool.poetry]
@@ -309,17 +314,23 @@ build-backend = "poetry.masonry.api"
 
 ```
 
+`tool.poetry.dev-dependencies`라는 이름으로 개발 전용 패키지로 잘 추가되었음을 확인할 수 있다.
+
 ### 개발환경 구현
 
-pyproject.toml가 있는 프로젝트를 내 개발환경에 일괄 설치하기
+pyproject.toml가 있는 프로젝트를 내 개발환경에 일괄 설치하기 위해서는 poetry 설치 후 아래 명령어로 설치해주면 된다.
 
-`poetry install`
+```
+poetry install
+```
+
+> 참고로 이 때가 pipenv와 속도 측면에서 가장 대비되는 대목이다. 자세한 차이는 추후 실험 포스트를 올리도록 하겠다.
 
 ### 패키지 목록 확인
 
-`poetry show`
+#### `poetry show`
 
-설치된 패키지 목록 출력. 버전과 이게 뭐 하는 패키지인지 간략하게 써 주는 센스..
+설치된 패키지 목록을 출력해주는 명령어이다. 버전과 함께 이게 뭐 하는 패키지인지 간략하게 써 주는 센스가 참 좋았다.
 
 ```
 $ poetry show
@@ -343,9 +354,10 @@ zipp               3.1.0  Backport of pathlib-compatible object wrapper for zip 
 
 ```
 
-`poetry show --tree`
+#### `poetry show --tree`
 
-현재 설치된 (개발 전용 패키지까지 포함한) 모든 의존성 패키지 트리 형태로 출력하기
+현재 설치된 (개발 전용 패키지까지 포함한) 모든 의존성 패키지 트리 형태로 출력해주는 명령어이다.
+어떤 패키지가 어디에서 나왔는지 한 눈에 확인할 수 있다.
 
 ```
 $ poetry show --tree
@@ -371,9 +383,9 @@ pytest 5.4.1 pytest: simple powerful testing with Python
 
 ```
 
-`poetry show --no-dev --tree`
+#### `poetry show --no-dev --tree`
 
-개발 전용 패키지를 제외한 의존성 트리 그리기
+개발 전용 패키지를 제외한 의존성 트리로 그리는 명령어이다.
 
 ```
 django 3.0.4 A high-level Python Web framework that encourages rapid development and clean, pragmatic design.
