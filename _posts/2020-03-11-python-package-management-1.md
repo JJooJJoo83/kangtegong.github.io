@@ -12,9 +12,10 @@ tags: [python-package-dependency]
 
 ## 문제 인식
 
-[이전 포스트](https://kangtegong.github.io/2020/03/06/python-package-management-0/)를 보고 오신 독자 분들은 아시겠지만, pip의 의존성 패키지 관리는 그다지 우아하지는 못하다. 필자는 python의 큰 팬인 만큼, '우아하지 못하다'는 표현보다는 '개선의 여지가 있다' 정도로만 표현하겠다.
+[이전 포스트](https://kangtegong.github.io/2020/03/06/python-package-management-0/)를 보고 오신 독자 분들은 아시겠지만, pip의 의존성 패키지 관리는 그다지 우아하지 못하다.  
+필자는 python의 큰 팬인 만큼, '우아하지 못하다'는 표현보다는 '개선의 여지가 있다' 정도로만 표현하겠다.
 
-어쨌든, requirements.txt 로 모든 패키지를 우겨넣는(?) 이런 방식은 구체적으로 어떤 문제가 있을까?
+어쨌든, requirements.txt 텍스트 파일 안에 모든 패키지를 우겨넣는(?) 이런 방식은 구체적으로 어떤 문제가 있을까?
 크게 세 가지로 나열해보면 아래와 같다. 
 
 1. 개발에서 발생하는 문제 : 상황별 패키지 관리의 어려움
@@ -22,6 +23,9 @@ tags: [python-package-dependency]
 3. 설치에서 발생하는 문제 : 환경에 따른 설치 에러 문제
 
 이제 이 문제들에 대해 알아보도록 하자. 그리고 필요하다면 이러한 문제 상황을 직접 재현해보도록 하자.
+
+![pycon 공식 홈페이지조차 requirements.txt를 사용한다..!](/files/py-packages1-3.png)
+
 
 ## ~~0. txt 확장자가 멋이 없다.~~
 
@@ -40,7 +44,9 @@ tags: [python-package-dependency]
 
 ## 2. package tree의 부재에서 오는 tracking의 어려움 
 
-개인적으로 필자는 이게 가장 큰 문제라고 생각한다. 하나의 텍스트 파일에 현 프로젝트의 모든 패키지들을 쏟아넣는 방식은 유저가 설치한 패키지의 의존성에 대한 정보까지 담지 못한다. 그래서 프로젝트 내 패키지 추가, 삭제와 같은 변동사항이 생길때, 수동으로 변동사항에 맞춰 텍스트 파일을 관리해줘야 하는 어려움이 있다. 이러한 어려움은 패키지의 업데이트가 빈번할수록, 프로젝트의 규모가 클수록, 섬세한 버전 관리가 필요한 버전에 예민한 프로젝트일수록 큰 문제를 야기할 수 있다.  
+![이 패키지는 누구시죠?](/files/py-packages1-2.jpg)
+
+개인적으로 필자는 이게 가장 큰 문제라고 생각한다. 하나의 텍스트 파일에 현 프로젝트의 모든 패키지들을 쏟아넣는 방식은 유저가 설치한 패키지의 의존성에 대한 정보까지 담지 못한다. 그래서 프로젝트 내에서 패키지 추가, 삭제와 같은 변동사항이 생길때, 수동으로 변동사항에 맞춰 텍스트 파일을 관리해줘야 하는 어려움이 있다. 이러한 점은 패키지의 업데이트가 빈번할수록, 프로젝트의 규모가 클수록, 섬세한 버전 관리가 필요한 버전에 예민한 프로젝트일수록 큰 문제를 야기할 수 있다.  
 
 사견을 좀 보태자면, 패키지 관리는 최소한 "이 패키지가 어떤 패키지에서 파생된 패키지인지" 정도는 알 수 있게끔 tracking 이 가능한 형태로 관리되어야 한다고 생각한다. (e.g. tree 형태)
 
@@ -53,39 +59,7 @@ $ source myvenv/Scripts/activate
 minchul@DESKTOP-N87KQ5N MINGW64 ~/Desktop/test (master)
 $ pip install tensorflow
 Collecting tensorflow
-  Downloading https://files.pythonhosted.org/packages/34/d5/ce8c17971067c0184c9045112b755be5461d5ce5253ef65a367e1298d7c5/tensorflow-2.1.0-cp37-cp37m-win_amd64.whl (355.8MB)
-Collecting keras-applications>=1.0.8 (from tensorflow)
-  Using cached https://files.pythonhosted.org/packages/71/e3/19762fdfc62877ae9102edf6342d71b28fbfd9dea3d2f96a882ce099b03f/Keras_Applications-1.0.8-py3-none-any.whl
-Collecting opt-einsum>=2.3.2 (from tensorflow)
-  Downloading https://files.pythonhosted.org/packages/b2/49/2233e63052d5686c72131b579837ddfb98ba9dd0b92bb91efcb441ada8ce/opt_einsum-3.2.0-py3-none-any.whl (63kB)
-Collecting protobuf>=3.8.0 (from tensorflow)
-  Downloading https://files.pythonhosted.org/packages/92/30/1b7ccde09bf0c535d11f18a574ed7d7572c729a8f754fd568b297be08b61/protobuf-3.11.3-cp37-cp37m-win_amd64.whl (1.0MB)
-Collecting wrapt>=1.11.1 (from tensorflow)
-  Downloading https://files.pythonhosted.org/packages/82/f7/e43cefbe88c5fd371f4cf0cf5eb3feccd07515af9fd6cf7dbf1d1793a797/wrapt-1.12.1.tar.gz
-Collecting google-pasta>=0.1.6 (from tensorflow)
-  Downloading https://files.pythonhosted.org/packages/c3/fd/1e86bc4837cc9a3a5faf3db9b1854aa04ad35b5f381f9648fbe81a6f94e4/google_pasta-0.1.8-py3-none-any.whl (57kB)
-Collecting tensorboard<2.2.0,>=2.1.0 (from tensorflow)
-  Downloading https://files.pythonhosted.org/packages/d9/41/bbf49b61370e4f4d245d4c6051dfb6db80cec672605c91b1652ac8cc3d38/tensorboard-2.1.1-py3-none-any.whl (3.8MB)
-Collecting keras-preprocessing>=1.1.0 (from tensorflow)
-  Using cached https://files.pythonhosted.org/packages/28/6a/8c1f62c37212d9fc441a7e26736df51ce6f0e38455816445471f10da4f0a/Keras_Preprocessing-1.1.0-py2.py3-none-any.whl
-Collecting tensorflow-estimator<2.2.0,>=2.1.0rc0 (from tensorflow)
-  Downloading https://files.pythonhosted.org/packages/18/90/b77c328a1304437ab1310b463e533fa7689f4bfc41549593056d812fab8e/tensorflow_estimator-2.1.0-py2.py3-none-any.whl (448kB)
-
-...
-
-Collecting oauthlib>=3.0.0 (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard<2.2.0,>=2.1.0->tensorflow)
-  Using cached https://files.pythonhosted.org/packages/05/57/ce2e7a8fa7c0afb54a0581b14a65b56e62b5759dbc98e80627142b8a3704/oauthlib-3.1.0-py2.py3-none-any.whl
-tensorboard 2.1.1 has requirement setuptools>=41.0.0, but you'll have setuptools 40.8.0 which is incompatible.
-tensorflow-estimator, termcolor, gast, scipy, astor, tensorflow
-  Running setup.py install for wrapt: started
-    Running setup.py install for wrapt: finished with status 'done'
-  Running setup.py install for absl-py: started
-    Running setup.py install for absl-py: finished with status 'done'
-  Running setup.py install for termcolor: started
-    Running setup.py install for termcolor: finished with status 'done'
-  Running setup.py install for gast: started
-    Running setup.py install for gast: finished with status 'done'
-Successfully installed absl-py-0.9.0 astor-0.8.1 cachetools-4.0.0 certifi-2019.11.28 chardet-3.0.4 gast-0.2.2 google-auth-1.11.2 google-auth-oauthlib-0.4.1 google-pasta-0.1.8 grpcio-1.27.2h5py-2.10.0 idna-2.9 keras-applications-1.0.8 keras-preprocessing-1.1.0 markdown-3.2.1 numpy-1.18.1 oauthlib-3.1.0 opt-einsum-3.2.0 protobuf-3.11.3 pyasn1-0.4.8 pyasn1-modules-0.2.8 requests-2.23.0 requests-oauthlib-1.3.0 rsa-4.0 scipy-1.4.1 six-1.14.0 tensorboard-2.1.1 tensorflow-2.1.0 tensorflow-estimator-2.1.0 termcolor-1.1.0 urllib3-1.25.8 werkzeug-1.0.0 wheel-0.34.2 wrapt-1.12.1
+  ... 중략 ... 
 (myvenv)
 minchul@DESKTOP-N87KQ5N MINGW64 ~/Desktop/test (master)
 $ pip freeze
@@ -125,7 +99,7 @@ wrapt==1.12.1
 
 ```
 
-아래 패키지 목록들만 봐서는 어떤 것이 tensorflow와 함께 설치된 패키지인지 알기란 몹시 어려울 것이다. 이 상황에서 앞으로 프로젝트를 진행하며 패키지들을 더 설치한다면, 패키지 의존성 파악은 매우 어려워질 겻이다.
+아래 패키지 목록들만 봐서는 어떤 것이 tensorflow와 함께 설치된 패키지인지 알기란 몹시 어려울 것이다. 이 상황에서 앞으로 프로젝트를 진행하며 패키지들을 더 설치한다면, 패키지 의존성 파악은 불가능에 가까워질 것이다.
 
 ## 3. 개발 환경에 따른 설치 에러 문제
 
@@ -137,6 +111,8 @@ wrapt==1.12.1
 
 필자도 그렇게 생각을 했었고, 지금까지도 그렇게 개발을 해 왔지만, 여기서도 문제가 생긴다.
 파이썬에는 가상환경의 종류가 너무나도 많고, 패키지 관리자(pip)와 수많은 가상환경을 일일이 맞추기 어렵기 때문에 패키지 설치 과정에서 에러가 생길 여지가 있다는 것이다.
+
+![파이썬은 가상환경이 많다](/files/py-packages1-4.jpg)
 
 사실 이는 통일되지 못한 가상환경과 패키지 관리자를 따로 관리해야 하는 데에서 오는 근원적인 문제이다. 
 실제 문제상황을 재연해보자.
@@ -166,6 +142,6 @@ pip freeze
 
 ### Next Post : 더 나은 의존성 관리를 위한 노력1, pipenv
 
-지금까지 pip를 이용한 패키지 의존성 관리에서의 문제점을 알아보았다. 이러한 문제를 그 동안 필자만 의식하고 있었던 것은 분명 아니었기에, '보다 나은 패키지 관리자'에 대한 열망으로 세계 각지의 파이써니스타들이 대안을 내놓기 시작했다.
+지금까지 pip를 이용한 패키지 의존성 관리에서의 문제점을 알아보았다. 이러한 문제를 그 동안 필자만 의식하고 있었던 것은 분명 아니었기에, **'보다 나은 패키지 관리자'**에 대한 열망으로 세계 각지의 파이써니스타들이 대안을 내놓기 시작했다.
 
 다음 포스트에서부터는 상술한 의존성 세 가지 문제를 해결하기 위한 노력들을 소개한다. 총 두 세 가지의 솔루션을 제시할텐데, 상황별 장단점과 보완전 및 한계도 함께 알아보도록 하자.
