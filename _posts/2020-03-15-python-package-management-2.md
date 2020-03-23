@@ -10,11 +10,11 @@ tags: [python-package-dependency]
  
 ## 들어가며
 
-[기존 포스트](https://kangtegong.github.io/2020/03/11/python-package-management-1/)를 보고오신 독자분들은 아시겠지만, `pip freeze > requirements.txt`하나만으로, pip에게 패키지 (의존성) 관리를 일임하는 데에는 아래와 같은 문제들이 있었다.
+[기존 포스트](https://kangtegong.github.io/2020/03/11/python-package-management-1/)를 보고오신 독자분들은 아시겠지만, `pip freeze > requirements.txt`하나만으로, requirements.txt에게 모든 패키지 (의존성) 관리를 일임하는 데에는 아래와 같은 문제들이 있었다.
 
 1. **개발에서 발생하는 문제** : 상황별 패키지 관리의 어려움
 2. **유지보수에서 발생하는 의존성 관리 문제** : tracking의 어려움
-3. **설치에서 발생하는 문제** : 환경에 따른 설치 에러 문제
+3. **설치에서 발생하는 문제** : 가상 환경에 따른 설치 에러 문제
 
 이러한 문제를 그 동안 필자만 의식하고 있었던 것은 분명 아니었기에, '보다 나은 패키지 관리자'에 대한 열망으로 세계 각지에서 대안을 내놓기 시작했다.
 
@@ -22,7 +22,9 @@ tags: [python-package-dependency]
 
 ## pipenv 소개 
 
-[`pipenv`](https://pipenv.pypa.io/en/latest/)는 프로젝트를 위한 가상환경을 자동으로 생성해주면서, 동시에 패키지를 프로젝트 단위로 관리할 수 있게 해주는 패키지 관리자이다.
+![pipenv](https://pipenv.pypa.io/en/latest/_static/pipenv.png)
+
+[`pipenv`](https://pipenv.pypa.io/en/latest/)는 파이썬 기반 프로젝트를 위한 가상환경을 자동으로 생성해주면서, 동시에 패키지를 프로젝트 단위로 관리할 수 있게 해주는 패키지 관리자이다.
 
 설치 명령어는 아래와 같다.
 
@@ -30,25 +32,24 @@ tags: [python-package-dependency]
 $ pip install pipenv
 ```
 
-pipenv가 자체적으로 프로젝트를 가상환경으로 관리해주기 때문에, 더 이상 pip와 가상환경을 따로 분리해 둘 필요가 없게 되었다. 
-
-또한, pipenv는 npm의 package.json 과 package-lock.json과 같은 패키지 의존성 관리 파일 `Pipfile`, `Pipfile.lock`을 자동 생성함으로써  수동으로 requirements.txt를 작성하는 수고로움도 덜 수 있게 해 주었다. 
+pipenv가 프로젝트를 자체 가상환경으로 관리해주기 때문에, 더 이상 pip와 가상환경을 따로 분리해 둘 필요가 없게 되었다. 
+또한, pipenv는 npm의 package.json 이나 package-lock.json과 같은 패키지 의존성 관리 파일 Pipfile, Pipfile.lock을 자동 생성함으로써 수동으로 requirements.txt를 작성하는 수고로움도 덜 수 있게 해 주었다. 
 
 이 밖에도 dependency graph와 같은 개발자 편의를 위한 기능들도 다수 제공한다.
 
 ## pipenv 기본 사용
 
-그럼 pipenv를 직접 한 번 사용해보자. 참고로 굳이 설치하지 않고도 [이 곳](https://rootnroll.com/d/pipenv/
-)에서 브라우저 상으로 실습해볼 수도 있다. pipenv를 설치했다면, 프로젝트 폴더를 하나 만들어주고(필자는 test라고 이름을 지었다), 그 안에서 `pipenv install`명령어를 통해 이 폴더 안에서 가상환경과 패키지 관리를 시작해 보도록 하자.
+그럼 pipenv를 직접 한 번 사용해보자. (참고로 굳이 설치하지 않고도 [이 곳](https://rootnroll.com/d/pipenv/
+)에서 브라우저 상으로 실습해볼 수도 있다.) pipenv를 설치했다면, 프로젝트 폴더를 하나 만들어주고(필자는 test라고 이름을 지었다), 그 안에서 `pipenv install`명령어를 통해 이 폴더 안에서 가상환경과 패키지 관리를 시작해 보도록 하자.
 
 ```
 $ mkdir test
 $ cd test
 $ pipenv install
 ```
-그러면 프로젝트 폴더 안에 가상환경을 생성한다는 문구와 함께 Pipfile, Pipfile.lock 이 생성된 걸 확인할 수 있다. 
+그러면 프로젝트 폴더 안에 가상환경을 생성하였다는 문구와 함께 Pipfile, Pipfile.lock 이 생성된 걸 확인할 수 있다. 
 
-이제 만일 프로젝트를 git에 올릴 적에 이 Pipfiles(Pipfile,Pipfile.lock)를 함께 올린다면, git을 clone한 뒤 `pipenv install` 명령어 하나만으로 (새롭게 가동되는 가상환경과 함께) 프로젝트에 달린 의존성 패키지들을 한 번에 설치할 수 있게 된다. 
+이제 이 Pipfiles(Pipfile,Pipfile.lock)만 있다면, `pipenv install` 명령어 하나만으로 (새롭게 가동되는 가상환경과 함께) 프로젝트에 종속되어있는 의존성 패키지들을 한 번에 설치할 수 있게 된다. 
 
 Pipfile 은 설치된 패키지들의 패키지 및 버전들을 기억하는 파일이다. 파일의 내용은 아래와 같다.
 
@@ -66,6 +67,7 @@ verify_ssl = true
 [requires]
 python_version = "3.7"
 ```
+*개발 전용 패키지, (배포용)패키지와 기본적인 프로젝트 (버전 상의)요구사항이 명시되어 있다*
 
 Pipfile.lock은 Pipfile이 업데이트된 시점의 의존성 정보를 기억하여, Pipfile 파일이 작성된 시점의 의존성 트리가 다시 생성될 수 있도록 보장한다.
 패키지를 다운로드, 업데이트 할 때마다 자동으로 업데이트 되는 Pipfile과는 다르게 Pipfile.lock은 `pipenv lock`을 통해 사용자가 직접 업데이트 해 주어야 한다. Pipfile.lock의 내부 구성은 아래와 같다. 
@@ -96,7 +98,7 @@ $ cat Pipfile.lock
 }
 ```
 
-아직까지는 파일 내의 내용만 봐서는 크게 와닿지 않을 수 있다. 그럼 Pipfile과 Pipfile.lock이 어떻게 패키지를 관리하는 지 알아보기 위해 django를 설치해보자.
+파일 내용만 봐서는 아직까지는 크게 와닿지 않을 수 있다. 그럼 Pipfile과 Pipfile.lock이 어떻게 패키지를 관리하는지 직접 눈으로 확인해보기 위해 django를 설치해보자.
 
 > `pip install django`가 아닌 `pipenv install django`임에 유의하자
 
@@ -132,9 +134,9 @@ django = "*"
 python_version = "3.7"
 ```
 
-Pipfile에 요구되는 패키지 정보와 파이썬 정보가 담겨있다는 걸 확인할 수 있다.
+django가 [packages] 항목에 잘 설치되었음을 확인할 수 있다.
 
-이러한 정보를 `Pipfile.lock`에도 반영해주기 위해 `pipenv lock` 명령어를 통해 Pipfile.lock을 업데이트하고 나면 Pipfile.lock은 아래와 같이 업데이트된다는 걸 알 수 있다.
+이러한 정보를 `Pipfile.lock`에도 반영해주기 위해서 `pipenv lock` 명령어를 통해 Pipfile.lock에 반영해보자. 그 결과는 아래와 같다.
 
 ```
 $ pipenv lock
@@ -198,18 +200,17 @@ $ cat Pipfile.lock
 }
 ```
 
-default 부분에 django를 비롯한 의존성 패키지들의 정보가, 
+default에 django를 비롯한 의존성 패키지들의 정보가, 
 `pipenv lock` 명령어를 친 시점 기준으로 반영되었다는 걸 확인할 수 있다.
 
 ## 개발환경 이원화 관리 (배포용, 개발용 나누어 관리)
 
 위 Pipfile.lock 파일의 내용을 보면 하단에 develop이라는 항목이 있다는 걸 확인할 수 있다.
-이미 예상하는 분들도 계실 수 있겠지만 pipenv는 배포용 패키지와 개발용 패키지를 나누어 관리할 수 있다.
-(`requirements.txt`와 `requirements-dev.txt` 로 나누어 관리할 필요가 없게 되었다!) 
+이미 예상하는 분들도 계실 수 있겠지만 pipenv는 배포용 패키지와 개발용 패키지를 이원화하여 관리할 수 있다.
+(더 이상 `requirements.txt`와 `requirements-dev.txt` 로 나누어 관리할 필요가 없게 되었다!) 
 
 개발용(테스트용) 패키지를 설치하기 위해서는 `--dev` 인자로 설치해주면 된다.
-예를 들어, 개발 시 테스트용으로 pytest를 설치하고자 하는데, 배포 단계에서는 pytest를 포함하고 싶지 않은 상황을 가정해보자.
-아래와 같이 설치 하면 pytest가 개발용 패키지로 설치되게 된다. 때문에 배표용 패키지와는 별개로 작업할 수 있어 조금 더 자유로운 개발이 가능해진다.
+예를 들어, 개발 시 테스트용으로 pytest를 설치하고자 하는데, 배포 단계에서는 pytest를 포함하고 싶지 않은 상황을 가정해보자. 아래와 같이 설치를 진행하면 pytest가 개발용 패키지로 설치된다. 때문에 배표용 패키지와는 별개로 작업할 수 있어 조금 더 자유로운 개발이 가능해진다.
 
 ```
 $ pipenv install --dev pytest
@@ -230,8 +231,8 @@ Installing dependencies from Pipfile.lock (deb801)…
 
 ## 기타 편의 기능 (의존성 그래프)
 
-  `pipenv graph` 명령어를 통해 패키지 의존관계를 더 명확히 확인할 수 있다.
-  아래를 보면, Django==3.0.4 패키지에 의존적인 패키지 `asgiref`, `pytz`, `sqlparse`를 한 눈에 파악할 수 있을 뿐 아니라, 요구되는 버전(required)과 실제 설치된 버전(installed)도 확인할 수 있다.
+  `pipenv graph` 명령어를 통해 패키지 의존관계를 좀 더 가시적으로 확인할 수 있다.
+  아래를 보면, pytest==5.4.1에는 어떤 패키지들이 의존적인지, Django==3.0.4에는 어떤 패키지들이 의존적인지, 그리고 그 의존성 패키지들에게 요구되는 버전(required)과 실제 설치된 버전(installed)은 무엇인지 한 눈에 확인할 수 있다.
 
     ```
     $ pipenv graph
@@ -258,7 +259,7 @@ Installing dependencies from Pipfile.lock (deb801)…
 
 ## 기존 pip의 문제 해결
 
-  분명 pipenv는 기존 pip 의존성 관리에 있어서의 가려운 부분을 긁어주었다. 구체적으로 어떤 개선사항이 있었는지 알아보자.
+  분명 pipenv는 기존 pip의 의존성 관리에 있어서의 가려운 부분을 긁어주었다. 구체적으로 어떤 개선사항이 있었는지 알아보자.
 
 ### 1. 개발용, 배포용 패키지를 나누어 관리할 수 있다.
   
@@ -278,11 +279,13 @@ Installing dependencies from Pipfile.lock (deb801)…
 
 ### 1. 늦은 업데이트
 
-maintain이 되는지조차 의심스러울 만큼 업데이트가 느리다. 2018년 12월 업데이트가 있었고, 그 이후 2019년에는 새 버전이 릴리즈 되지도 않았다. 위 링크에서는 'dead' 라는 표현까지 사용했다.
+maintain이 되는지조차 의심스러울 만큼 업데이트가 느리다. 2018년 12월 업데이트가 있었고, 그 이후 2019년에는 새 버전이 릴리즈 되지도 않았다. (위 링크에서는 'pipenv is dead' 라는 표현까지 사용했다..)
 
 ### 2. 느리다
 
-위 예시에서 `pipenv install django` 를 통해 django와 의존성 패키지, Pipfile과 Pipfile.lock이 설치되는 모습을 보여주었는데, 그 과정은 30~40초가량이 소요되었다. `pip install django`를 통해 django를 설치하면 10~20초 이내로 패키지 설치가 끝나는 점을 고려한다면 분명 단점이라면 단점이다.
+위 글의 예시에서 `pipenv install django` 명령어를 통해 django와 그에 따른 의존성 패키지, Pipfile과 Pipfile.lock이 설치되는 모습을 보여주었는데, 실은 그 과정이 30~40초가량이나 소요되었다. `pip install django`를 통해 django를 설치하면 10~20초 이내로 패키지 설치가 끝나는 점을 고려한다면 분명 단점이라면 단점이다.
+
+실제 pipenv와 pip 등으로 설치할 경우 속도 차이가 얼마나 나는지는 추후 코드를 통해 시연을 보여드리도록 하겠다.
 
 ### 3. 부가 기능(script)의 performance
 
@@ -291,9 +294,9 @@ maintain이 되는지조차 의심스러울 만큼 업데이트가 느리다. 20
 ### Next Post : 더 나은 의존성 관리를 위한 노력(2) : poetry
 
 역시 pipenv 하나로는 *"그 뒤로 그들은 행복하게 살았답니다"*와 같은 결론을 내릴 수는 없었다.
-결국 패키지 의존성 관리에 있어 새로운 후발 주자가 필요한 셈인데, 다행히도 생겨난지 얼마 안 된 패키지 관리자가 있다. 바로 poetry라는 녀석이다. 다음 포스트에서는 이 poetry에 대해서 알아보도록 하겠다.  
+결국 패키지 의존성 관리에 있어 새로운 후발 주자가 필요한 셈인데, 다행히도 생겨난지 얼마 안 된 젊은(?) 패키지 관리자가 있다. 바로 poetry이다. 다음 포스트에서는 이 poetry에 대해서 알아보도록 하겠다.  
 
-### 참고 1: $ pipenv --help
+### (참고) pipenv usage : $ pipenv --help
 
 ```
 $ pipenv --help
