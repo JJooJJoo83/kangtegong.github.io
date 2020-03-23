@@ -44,9 +44,10 @@ pip를 이용해 간편하게 패키지를 설치한 뒤에, 배포 등의 이�
   $ pip freeze > requirements.txt
   ```
 
-  `pip freeze`는 해당 프로젝트에 설치된 모든 패키지들의 목록을 출력하는 명령어이다.  
-  
-  `> requirements.txt`는 이 명령어의 결과를 requirements.txt 라는 이름의 텍스트 파일에 기록하라는 의미이다. (물론 텍스트 파일의 이름은 달라도 무방하다.)
+  `pip freeze`는 해당 프로젝트에 설치된 모든 패키지들의 목록을 출력하는 명령어이다. `> requirements.txt`는 `pip freeze` 명령어의 결과를 requirements.txt 라는 이름의 텍스트 파일에 기록하라는 의미이다. (물론 텍스트 파일의 이름은 꼭 requirements.txt가 아니어도 무방하다.)
+
+![requirements.txt 만드는 과정](/files/py-packages0-2.gif)
+
 
 2. **requirements.txt 에 적힌 패키지 목록들 설치하기**
 
@@ -63,9 +64,10 @@ pip를 이용해 간편하게 패키지를 설치한 뒤에, 배포 등의 이�
   $PATH에는 다운로드할 경로를 지정하면 되고 딱히 지정하지 않는 경우에는 현재 경로에 다운로드
   ```
 
-![requirements.txt 만드는 과정](/files/py-packages0-2.gif)
-
 > 정리해보자면, 지금까지의 파이썬 패키지 의존성 관리는 개발환경 상에 설치된 모든 패키지들의 리스트를 기록한 파일 (requirements.txt)을 만든 뒤, 클라이언트 환경에서 해당 파일 (requirements.txt)를 설치함으로서 이루어졌다.
+
+![requirements.txt로 의존성 패키지 설치하기](/files/py-packages0-3.gif)
+
 
 ## 옆동네는 패키지 관리를 어떻게 할까? : npm, yarn
 
