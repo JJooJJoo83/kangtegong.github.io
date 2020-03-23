@@ -10,15 +10,15 @@ tags: [python-package-dependency]
 
 > 읽기 전 잠깐 용어 정리 : [모듈 vs 라이브러리 vs 패키지](https://kangtegong.github.io/2020/03/05/module-library-package/)
 
-패키지 의존성 관리는 중요하다. 요즈음 같이 무수한 패키지들이 생겨나고, 쉽게 다운로드 받고, 빠르게 업데이트 되는 시대에서는 더더욱 중요하다. "일단 깔고 보자"는 마구잡이 식으로 패키지 관리를 소홀히 경우, 개발환경 재현이 어려워 "아까까지는 (내 컴퓨터에서) 됐는데.." 와 같은 대사를 하고 있는 자신을 발견하게 될 수 있기 떄문이다. 그렇다면 파이썬은 그 많고 많은 패키지들을 어떻게 관리할까? 그리고 파이썬과 비슷한 대패키지 시대를 맞이한 옆 동네 javascript에서는 어떻게 패키지를 관리하고 있을까?
+패키지 의존성 관리는 중요하다. 요즈음 같이 무수한 패키지들이 생겨나고, 쉽게 다운로드 받고, 빠르게 업데이트 되는 시대에선 더더욱 중요하다. "일단 깔고 보자"는 마구잡이 식으로 패키지 관리를 소홀히 경우, 개발환경 재현이 어려워 "아까까지는 (내 컴퓨터에서) 됐는데.." 와 같은 대사를 하고 있는 자신을 발견하게 될 수 있기 떄문이다. 그렇다면 파이썬은 그 많고 많은 패키지들을 어떻게 관리할까? 그리고 파이썬과 비슷한 대패키지 시대를 맞이한 옆 동네 javascript에서는 어떻게 패키지를 관리하고 있을까?
 
 ![쉽게 다운로드받고, 많이 만들어지고, 빨리 업데이트되는 요즈음 패키지](/files/py-packages0-1.png)
 *출처 https://pypistats.org/packages/__all__*
 
 ## pip 
 
-많이들 알다시피 흔히 파이썬 패키지를 다운로드 받기 위해 pip를 이용한다. pip는, 웹에 게시되어 있는 PyPI(Python Package Index) 아카이브에서 자동으로 패키지를 다운로드해서 설치해주는 유틸리티 중 하나이다.
-`pip install 패키지이름` 명령어 하나만으로 해당 패키지뿐 아니라 의존성 있는 모듈이나 패키지까지 간편하게 설치할 수 있게 된, 고맙고도 강력한 도구라 하겠다. `install` 명령 이외의 유용한 명령어들은 아래와 같다.
+많이들 알다시피 파이썬 패키지를 다운로드 받기 위해 흔히들 pip를 이용한다. pip는 웹에 게시되어 있는 PyPI(Python Package Index) 아카이브에서 자동으로 패키지를 다운로드해서 설치해주는 유틸리티 중 하나이다.
+`pip install 패키지이름` 명령어 하나만으로 해당 패키지뿐 아니라 의존성 있는 모듈이나 패키지까지 간편하게 설치할 수 있게 해 주는, 고맙고도 강력한 도구라 하겠다. `install` 명령 이외의 유용한 명령어들은 아래와 같다.
 
 ```
 pip search 패키지          : 패키지 검색
@@ -29,22 +29,28 @@ pip uninstall 패키지       : 패키지 삭제
 
 ## pip를 이용한 패키지 의존성 관리
 
-pip를 이용해 간편하게 패키지를 설치한 뒤에, 배포 등의 이유로 의존성 패키지를 관리해주기 위해서는 지금까지 내 프로젝트에서 (어떤 버전대의) 어떤 패키지들이 설치되었는지를 알아야 할 것이다.
+pip를 이용해 간편하게 패키지를 설치한 뒤에, 배포 등의 이유로 의존성 패키지를 관리해주기 위해서는 **지금까지 내 프로젝트에서 (어떤 버전대의) 어떤 패키지들이 설치되었는지**를 알아야 할 것이다.
 
-내 개발환경에 설치된 (의존 라이브러리를 포함한) 모든 패키지들을 한 번에 기록하는 작업은 으레 아래와 같은 순서로 이루어진다.
+내 개발환경에 설치된 (의존 라이브러리를 포함한) 모든 패키지들을 한 번에 기록하고, 다른 개발 환경에 일괄적으로 설치하는 작업은 으레 아래와 같은 순서로 이루어진다.
 
-1. 텍스트 파일(requirements.txt)에 설치된 패키지 이름과 버전을 몽땅 기록하기
+> 1. 텍스트 파일(requirements.txt)에 현 프로젝트에 설치된 패키지 이름과 버전을 몽땅 기록하기
+> 2. 그 텍스트파일에 적은 패키지 목록들을 한번에 설치하기
+
+1. **텍스트 파일(requirements.txt)에 현 프로젝트에 설치된 패키지 이름과 버전을 몽땅 기록하기**
+
+  임의의 텍스트 파일(requirements.txt)을 만들어 그 안에 패키지 목록과 버전을 기록하는 과정은 아래 명령어로 한 번에 수행할 수 있다. 
 
   ```
   $ pip freeze > requirements.txt
   ```
 
   `pip freeze`는 해당 프로젝트에 설치된 모든 패키지들의 목록을 출력하는 명령어이다.  
-  이 명령어의 결과를 requirements.txt 라는 이름의 텍스트 파일에 기록하라는 의미이다. (물론 텍스트 파일의 이름은 달라도 무방하다.)
+  
+  `> requirements.txt`는 이 명령어의 결과를 requirements.txt 라는 이름의 텍스트 파일에 기록하라는 의미이다. (물론 텍스트 파일의 이름은 달라도 무방하다.)
 
-2. requirements.txt 에 적힌 패키지 목록들 설치하기
+2. **requirements.txt 에 적힌 패키지 목록들 설치하기**
 
-  `pip freeze > requirements.txt` 명령어를 통해 패키지들의 목록과 버전을 requirements.txt에 적어주었다면, 다른 개발환경에서 requirements 파일 안에 있는 내용들을 아래 명령어를 통해 한 번에 설치해주었다.
+  `pip freeze > requirements.txt` 명령어를 통해 패키지들의 목록과 버전을 requirements.txt에 적어주었다면, 다른 개발환경에서 requirements 파일 안에 있는 내용들을 아래 명령어를 통해 한 번에 설치해주면 된다.
   
   ```
   $ pip install -r requirements.txt
@@ -63,7 +69,7 @@ pip를 이용해 간편하게 패키지를 설치한 뒤에, 배포 등의 이�
 
 ## 옆동네는 패키지 관리를 어떻게 할까? : npm, yarn
 
-pip와 같이 패키지 관리자임과 동시에 의존성 관리자역을 수행하고 있는 유틸리티로는 npm, yarn, cargo, brew 등이 있다. 이 포스트에서는 이들 중 npm과 yarn을 알아보기로 한다.
+pip와 같이 패키지 관리자이자 동시에 의존성 관리자역을 수행하고 있는 유틸리티에는 npm, yarn, cargo, brew 등이 있다. 이 포스트에서는 이들 중 npm과 yarn을 알아보기로 한다.
 
 npm과 yarn은 둘 다 JavaScript의 패키지 관리자이다. pip와 마찬가지로 의존성 패키지(모듈)도 한꺼번에 설치 및 설치가 가능하다.
 
@@ -73,6 +79,7 @@ npm과 yarn은 둘 다 JavaScript의 패키지 관리자이다. pip와 마찬가
 
 npm은 이름부터가 Node Package Manager이기 때문에 Node.js를 설치하면 자동적으로 설치된다.
 또한 pip와 마찬가지로 `npm install 패키지이름` 명령어를 통해 의존성 패키지까지 간편하게 설치할 수 있다.
+
 npm 초기화를 위해 `npm init` 명령어를 입력하고 package name, version, description, license 등을 입력하면 입력한 정보에 맞는 [package.json](https://docs.npmjs.com/files/package.json) 파일이 생성된다.
 
 ```
@@ -116,24 +123,74 @@ Is this OK? (yes) yes
 
 > 이런 번거로운 입력이 싫다면 `npm init -y` 혹은 `npm init -f` 로 초기화해주면 된다.
 
-이 때 생성되는 package.json이 프로젝트 정보와 의존성을 관리해준다.
+이 때 자동으로 생성되는 package.json이 프로젝트 정보와 의존성을 관리해주는 파일이다.
 
-그리고, 다른 개발 환경에서도 `npm install`을 통해 특정 패키지를 설치 하게 되면 package.json을 통해 node_modules 트리가 형성된다. 
+```
+minchul@DESKTOP-N87KQ5N MINGW64 ~/Desktop/npm_test (master)
+$ npm init -y
+Wrote to C:\Users\강민철\Desktop\npm_test\package.json:
 
-하지만, 여러가지 이유로 인한 package.json을 통한 동일 개발환경 구축에 실패하는 상황을 방지하기 위하여, 
+{
+  "name": "npm_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+minchul@DESKTOP-N87KQ5N MINGW64 ~/Desktop/npm_test (master)
+$ ls -al
+total 49
+drwxr-xr-x 1 minchul 197121   0 3월  23 20:31 ./
+drwxr-xr-x 1 minchul 197121   0 3월  23 20:30 ../
+-rw-r--r-- 1 minchul 197121 222 3월  23 20:31 package.json
+
+```
+> npm init을 하면 자동으로 생성되는 패키지 관리 파일 package.json
+
+package.json 파일이 관리하는 패키지들을 다른 개발 환경에서 일괄적으로 설치하고자 한다면 `npm install` 명령어를 치기만 하면 된다. (이 때 패키지 트리인 node_modules 트리가 형성된다.) 
+
+하지만, 여러가지 이유로 인해 package.json을 통한 동일 개발환경 구축에 실패하는 상황을 방지하기 위하여, 
 [package-lock.json](https://docs.npmjs.com/files/package-lock.json.html) 파일이 자동으로 만들어진다. 이 package-lock 파일 덕분에 의존성 업데이트와 같은 버전 변경에 대해서도 동일한 node_module의 생성을 보장할 수 있게 되었다. 
 
-또한, 개발 전용 패키지와 배포 전용 패키지를 나누어 관리할 수 있게 되어있는데, 이 덕분에 개발 단계에서 테스트용 패키지, 임시 설치 패키지, 실수로 설치한 패키지 등이 배포 단계에서 전혀 영향을 끼치지 않게 되어 자유로운 개발이 가능해졌다.
+```
+minchul@DESKTOP-N87KQ5N MINGW64 ~/Desktop/npm_test (master)
+$ npm install
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN npm_test@1.0.0 No description
+npm WARN npm_test@1.0.0 No repository field.
+
+up to date in 0.864s
+found 0 vulnerabilities
+
+
+minchul@DESKTOP-N87KQ5N MINGW64 ~/Desktop/npm_test (master)
+$ ls -al
+total 50
+drwxr-xr-x 1 minchul 197121   0 3월  23 20:35 ./
+drwxr-xr-x 1 minchul 197121   0 3월  23 20:30 ../
+-rw-r--r-- 1 minchul 197121 222 3월  23 20:31 package.json
+-rw-r--r-- 1 minchul 197121  71 3월  23 20:35 package-lock.json
+
+```
+> npm install을 하면 자동으로 설치되는 package.json, package-lock.json
+
+또한, npm은 개발 전용 패키지와 배포 전용 패키지를 나누어 관리할 수 있게 되어있는데, 이렇게 이원화된 패키지 관리 덕에 개발 단계에서 설치한 테스트용 패키지, 임시 패키지, 실수로 설치한 패키지 등이 배포 단계에서 전혀 영향을 끼치지 않게 되어 자유로운 개발이 가능해졌다.
 
 ### yarn
 
 <img src="https://github.com/kangtegong/kangtegong.github.io/blob/master/files/py-packages0-4.png?raw=true" width="80%" alt="yarn img">
 
 yarn은 npm의 성능과 보안을 개선하기 위해 facebook 개발자들이 만든 패키지 매니저이다.
-yarn 또한 npm과 마찬가지로 package.json 을 통해 이름, 설치된 패키지의 버전, 라이선스 등을 명시한다. 
-그리고 npm이 package-lock.json을 만든 동일한 이유로 yarn.lock을 생성한다. yarn 또한 npm과 동일하게 개발 전용 패키지와 배포 전용 (production) 패키지를 구분하여 관리한다.
+사용 예는 npm과 상당부분 유사하다. yarn 또한 npm과 마찬가지로 package.json 을 통해 이름, 설치된 패키지의 버전, 라이선스 등을 명시한다. 
+그리고 npm이 package-lock.json을 자동 생성하는 이유와 동일한 이유로 yarn.lock을 생성한다. yarn 또한 npm과 동일하게 개발 전용 패키지와 배포 전용 (production) 패키지를 구분하여 관리한다.
 
-그리고, `yarn` 명령어를 통해 package.json 내의 패키지들의 의존성을 관리하게 된다.
+그리고, yarn은 `yarn` 명령어를 통해 package.json 내의 패키지들의 의존성을 수월하게 관리할 수 있다.
 대표적인 명령어는 아래와 같다.
 
 ```
