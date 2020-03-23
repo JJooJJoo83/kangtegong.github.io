@@ -22,7 +22,7 @@ tags: [python-package-dependency]
 
 ## pipenv 소개 
 
-![pipenv](https://pipenv.pypa.io/en/latest/_static/pipenv.png)
+<img src="https://pipenv.pypa.io/en/latest/_static/pipenv.png" alt="pipenv" width="70%">
 
 [`pipenv`](https://pipenv.pypa.io/en/latest/)는 파이썬 기반 프로젝트를 위한 가상환경을 자동으로 생성해주면서, 동시에 패키지를 프로젝트 단위로 관리할 수 있게 해주는 패키지 관리자이다.
 
