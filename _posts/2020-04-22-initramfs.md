@@ -21,7 +21,7 @@ initramfs의 목적은 root file system의 mount 이기 때문에, mount가 완�
 
 커널은 올라오지만 부팅은 되지 않는다.
 
-### bootloader가 망가졌다면? (부팅이 안될 경우 initramfs가 문제임을 추론하기)
+### bootloader가 망가졌다면? (부팅이 안될 경우 bootloader가 문제임을 추론하기)
 
 boot entry조차 보이지 않는다
 
