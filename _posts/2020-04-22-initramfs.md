@@ -2,7 +2,7 @@
 layout: post
 title: 'initramfs & kernel'
 author: minchul.kang
-date: 2020-03-08 12:00
+date: 2020-04-22 12:00
 tags: [system-engineering]
 ---
 
