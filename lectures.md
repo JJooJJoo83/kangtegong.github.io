@@ -16,7 +16,7 @@ tags: [lecture]
 
 ## [LikeLion-DjangoRestFramework]
 
-## [Develup-JavaScript(ES6)]
+## [Goorm-JavaScript(ES6)](https://edu.goorm.io/lecture/19879/%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC-%EC%9C%84%ED%95%9C-javascript-es6)
 
 <!--
 * 커버 이미지 출처: [API Testing and some amazing testing tools](http://go-gaga-over-testing.blogspot.kr/2013/11/api-testing-and-some-amazing-testing.html)
