@@ -2,7 +2,7 @@
 layout: post
 title: 'GCC로 라이브러리 다루기'
 author: minchul.kang
-date: 2020-05-24 12:00
+date: 2020-05-24 12:10
 tags: [system-programming]
 ---
 
